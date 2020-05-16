@@ -5,29 +5,37 @@ using UnityEngine.InputSystem;
 
 public class Player_Movement : MonoBehaviour
 {
-    PlayerControlls input;
+    public Transform transform;
+    public float movementSpeed = 5f;
+    Vector2 moveDir;
 
-    //move
-    Vector2 movementInput;
-
-    private void Awake()
+    public void FixedUpdate()
     {
-        input = new PlayerControlls();
-        input.Player.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        if (moveDir.x > 0.1)
+        {
+            //move right
+            transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+        }
+        else if (moveDir.x < -0.1)
+        {
+            //move left
+            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+        }
+        else if (moveDir.y > 0.1)
+        {
+            //move up
+            transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+        }
+        else if (moveDir.y < -0.1)
+        {
+            //move down
+            transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
+        }
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
 
-    private void OnEnable()
+    public void Move(InputAction.CallbackContext context)
     {
-        input.Enable();
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
+        moveDir = context.ReadValue<Vector2>();
     }
 }

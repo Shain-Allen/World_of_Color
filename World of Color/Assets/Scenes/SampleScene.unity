@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 2055061648}
   - component: {fileID: 2055061647}
   - component: {fileID: 2055061650}
+  - component: {fileID: 2055061651}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -269,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 2055061649}
   movementSpeed: 5
+  moveDir: {x: 0, y: 0}
 --- !u!212 &2055061648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -376,7 +378,18 @@ MonoBehaviour:
     m_ActionId: 6d9ba818-bca8-48f7-9d5d-4ddfe0c277bb
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2055061647}
+        m_MethodName: Attack1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f77b93bb-ed71-4f91-a892-90da9cdb6506
     m_ActionName: Player/Attack1[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -384,3 +397,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &2055061651
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055061646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd97c6b1e61f5e04992d367ac1711b25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

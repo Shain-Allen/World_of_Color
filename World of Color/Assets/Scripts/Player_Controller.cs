@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_Movement : MonoBehaviour
+public class Player_Controller : MonoBehaviour
 {
+#pragma warning disable
     public Transform transform;
     public float movementSpeed = 5f;
-    Vector2 moveDir;
+    [HideInInspector]
+    public Vector2 moveDir;
 
     public void FixedUpdate()
     {
@@ -37,5 +39,10 @@ public class Player_Movement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<Vector2>();
+    }
+
+    public void Attack1(InputAction.CallbackContext context)
+    {
+        //put attack logic stuff here
     }
 }

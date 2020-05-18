@@ -25,5 +25,10 @@ public class Menu_Controller : MonoBehaviour
     {
         mainMixer.SetFloat("volume", volume);
     }
+
+    public void Set_Fullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
 }
  

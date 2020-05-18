@@ -1269,8 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581e8c9ac9b71924dbc7e830c71ef1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
-  numOfHearts: 4
+  health: 10
+  numOfHearts: 10
   hearts:
   - {fileID: 85216434}
   - {fileID: 568137521}
@@ -1284,6 +1284,7 @@ MonoBehaviour:
   - {fileID: 789198355}
   fullHeart: {fileID: 21300000, guid: ee8896c6c4802a84eaff2029dbfaef63, type: 3}
   EmptyHeart: {fileID: 21300000, guid: 5cb259ffa1430364ca842a313ceab796, type: 3}
+  PlayerMat: {fileID: 2100000, guid: 88b4f80578be4b144b72d27a4c83a532, type: 2}
 --- !u!1 &2111031672
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Menu_Controller : MonoBehaviour
 {
+    public AudioMixer mainMixer;
 
     public void Next_Scene()
     {
@@ -18,4 +20,15 @@ public class Menu_Controller : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Set_Volume(float volume)
+    {
+        mainMixer.SetFloat("volume", volume);
+    }
+
+    public void Set_Fullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
 }
+ 

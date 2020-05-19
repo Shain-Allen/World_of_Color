@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -10,18 +9,16 @@ public class EnemyMovement : MonoBehaviour
         Chase,
         Patrol
     }
-
     public EnemyState enemyState = EnemyState.Chase;
     public float distToChasePlayer = float.MaxValue;
 
-    //movement stats
-    public float speed = 0.1f;
-    public Vector2 direction = Vector2.up;
-
     //calculating movement goals/targets
-    public float buffer = 1.0f;
+    public Vector2 direction = Vector2.zero;
+    public Vector2 minDistFromPlayer = new Vector2(1.0f, 1.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.25f;
+
     public Vector2 target = Vector2.zero;
-    public Vector2 destination = Vector2.zero;
+    public Vector2 destination = Vector2.up;
     public bool isDoneMoving = true;
 
     private Rigidbody2D myRb;
@@ -33,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();
 
         Player = GameObject.Find("Player");
     }
@@ -59,19 +57,20 @@ public class EnemyMovement : MonoBehaviour
             switch (enemyState)
             {
                 case EnemyState.Chase:
-
+                    target = FindClosestAdjacent(Player.transform.position);
                     //only move if we haven't reached the target
-                    if (!isOnTarget())
+                    if (!isNearPlayer())
                     {
-                        target = FindClosestAdjacent(Player.transform.position);
+                        GetComponent<EnemyAttack>().canAttack = false;
                         ChoosePath(target);
                     }
-                    //stp moving and attack when we reach the target
+                    //stop moving and attack when we reach the target
                     else
                     {
                         isDoneMoving = true;
-                        //GetComponent<EnemyAttack>().setAttackParameters(direction);
-
+                        switchAnimations(direction);
+                        GetComponent<EnemyAttack>().canAttack = true;
+                        GetComponent<EnemyAttack>().setAttackParameters(direction);
                     }
                     break;
                     
@@ -89,7 +88,7 @@ public class EnemyMovement : MonoBehaviour
 
         int closest = 0;
 
-        Vector2[] possibleTargets = { new Vector2(basePos.x + buffer, basePos.y), new Vector2(basePos.x - buffer, basePos.y), new Vector2(basePos.x, basePos.y + buffer), new Vector2(basePos.x, basePos.y - buffer) };
+        Vector2[] possibleTargets = { new Vector2(basePos.x + minDistFromPlayer.x, basePos.y), new Vector2(basePos.x - minDistFromPlayer.x, basePos.y), new Vector2(basePos.x, basePos.y + minDistFromPlayer.y), new Vector2(basePos.x, basePos.y - minDistFromPlayer.y) };
 
         for (int i = 0; i < possibleTargets.Length; i++)
         {
@@ -124,7 +123,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         direction = possibleMovements[bestPath];
-        //switchAnimations(direction);
+        switchAnimations(direction);
 
         destination = (Vector2)transform.position + direction;
 
@@ -134,9 +133,9 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going past our target)
-        while (Vector2.Distance(transform.position, destination) > 0.0001f && !isOnTarget())
+        while (Vector2.Distance(transform.position, destination) > 0.0001f && !isNearPlayer())
         {
-            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, speed);
+            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, 0.05f);
             myRb.MovePosition(newPos);
             yield return new WaitForFixedUpdate();
         }
@@ -145,20 +144,22 @@ public class EnemyMovement : MonoBehaviour
         StopAllCoroutines();
     }
 
-    bool isOnTarget()
+
+    //check if we've reached the target
+    bool isNearPlayer()
     {
         //direction is facing player
         direction = (Vector2)Player.transform.position - target;
         direction.Normalize();
 
-        if(Vector2.Distance((Vector2)transform.position + (direction * buffer), Player.transform.position) > 0.5f)
+        if (Vector2.Distance((Vector2)transform.position + (direction * minDistFromPlayer), Player.transform.position) > buffer)
         {
             return false;
         }
         return true;
     }
 
-    //switch animation based on direction
+    //switch animation based on what direction we're moving in/facing
     void switchAnimations(Vector2 direction)
     {
         if(direction == Vector2.up)

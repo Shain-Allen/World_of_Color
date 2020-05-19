@@ -26,16 +26,19 @@ public class Player_Controller : MonoBehaviour
         {
             //move left
             transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+            combatdir.attackdir = Player_Combat.AttackDir.left;
         }
         else if (moveDir.y > 0.1)
         {
             //move up
             transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+            combatdir.attackdir = Player_Combat.AttackDir.up;
         }
         else if (moveDir.y < -0.1)
         {
             //move down
             transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
+            combatdir.attackdir = Player_Combat.AttackDir.down;
         }
     }
 

@@ -3433,9 +3433,9 @@ GameObject:
   - component: {fileID: 2055061648}
   - component: {fileID: 2055061650}
   - component: {fileID: 2055061651}
+  - component: {fileID: 2055061653}
   - component: {fileID: 2055061652}
   - component: {fileID: 2055061647}
-  - component: {fileID: 2055061653}
   - component: {fileID: 2055061654}
   m_Layer: 0
   m_Name: Player
@@ -3459,7 +3459,7 @@ MonoBehaviour:
   transform: {fileID: 2055061649}
   movementSpeed: 5
   moveDir: {x: 0, y: 0}
-  combatdir: {fileID: 0}
+  combatdir: {fileID: 2055061654}
 --- !u!212 &2055061648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3568,7 +3568,7 @@ MonoBehaviour:
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2055061647}
+      - m_Target: {fileID: 2055061654}
         m_MethodName: Attack1
         m_Mode: 0
         m_Arguments:
@@ -3666,6 +3666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd28aa678d37824bbc5ccd9f4d27b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCoolDown: 0
+  isAttacking: 0
   attackdir: 0
 --- !u!1 &2111031672
 GameObject:

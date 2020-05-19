@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public EnemyObject enemyObj;
+    public EnemyAttack myAttack;
+
     // in case we add additional movement options
     public enum EnemyState
     {
@@ -21,16 +24,13 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 destination = Vector2.up;
     public bool isDoneMoving = true;
 
-    private Rigidbody2D myRb;
-    private Animator myAnim;
-
     public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRb = GetComponent<Rigidbody2D>();
-        myAnim = GetComponent<Animator>();
+        myAttack = GetComponent<EnemyAttack>();
+        enemyObj = GetComponent<EnemyObject>();
 
         Player = GameObject.Find("Player");
     }
@@ -61,7 +61,7 @@ public class EnemyMovement : MonoBehaviour
                     //only move if we haven't reached the target
                     if (!isNearPlayer())
                     {
-                        GetComponent<EnemyAttack>().canAttack = false;
+                        myAttack.canAttack = false;
                         ChoosePath(target);
                     }
                     //stop moving and attack when we reach the target
@@ -69,8 +69,8 @@ public class EnemyMovement : MonoBehaviour
                     {
                         isDoneMoving = true;
                         switchAnimations(direction);
-                        GetComponent<EnemyAttack>().canAttack = true;
-                        GetComponent<EnemyAttack>().setAttackParameters(direction);
+                        myAttack.canAttack = true;
+                        myAttack.setAttackParameters(direction);
                     }
                     break;
                     
@@ -135,8 +135,8 @@ public class EnemyMovement : MonoBehaviour
         //keep moving until we reach our current destination (make sure we're not going past our target)
         while (Vector2.Distance(transform.position, destination) > 0.0001f && !isNearPlayer())
         {
-            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, 0.05f);
-            myRb.MovePosition(newPos);
+            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, enemyObj.speed);
+            enemyObj.myRb.MovePosition(newPos);
             yield return new WaitForFixedUpdate();
         }
 
@@ -164,19 +164,19 @@ public class EnemyMovement : MonoBehaviour
     {
         if(direction == Vector2.up)
         {
-            //myAnim.SetInteger("state", 1);
+            //enemyObj.myAnim.SetInteger("state", 1);
         }
         if (direction == Vector2.down)
         {
-            //myAnim.SetInteger("state", 1);
+            //enemyObj.myAnim.SetInteger("state", 1);
         }
         if (direction == Vector2.left)
         {
-            //myAnim.SetInteger("state", 1);
+            //enemyObj.myAnim.SetInteger("state", 1);
         }
         if (direction == Vector2.right)
         {
-            //myAnim.SetInteger("state", 1);
+            //enemyObj.myAnim.SetInteger("state", 1);
         }
     }
 }

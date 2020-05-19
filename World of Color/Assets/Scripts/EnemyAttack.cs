@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    public EnemyObject enemyObj;
+
     //attack
     public Vector2 attackDirection = Vector2.up;
     public bool canAttack = false;  //true if enemy is within attacking range
@@ -17,6 +19,8 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyObj = GetComponent<EnemyObject>();
+
         Player = GameObject.Find("Player");
     }
 
@@ -25,7 +29,8 @@ public class EnemyAttack : MonoBehaviour
     {
         if(canAttack && currCooldown >= maxCooldown)
         {
-            //play attack animation
+            //enemyObj.myAnim.SetInteger("state", 1);
+            Player.GetComponent<Player_Health>().health -= enemyObj.attackDamage;
             currCooldown = 0;
         }
         else

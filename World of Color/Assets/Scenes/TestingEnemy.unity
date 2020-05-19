@@ -422,8 +422,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2121065994}
+  - component: {fileID: 2121065998}
   - component: {fileID: 2121065992}
   - component: {fileID: 2121065997}
+  - component: {fileID: 2121065999}
   - component: {fileID: 2121065995}
   - component: {fileID: 2121065993}
   - component: {fileID: 2121065996}
@@ -446,11 +448,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0160950988be72f4488beea245df44ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyObj: {fileID: 0}
+  myAttack: {fileID: 0}
   enemyState: 0
   distToChasePlayer: 3.4028235e+38
   direction: {x: 0, y: 0}
   minDistFromPlayer: {x: 1.25, y: 2}
-  buffer: 0.25
+  buffer: 0.3
   target: {x: 0, y: 0}
   destination: {x: 0, y: 1}
   isDoneMoving: 1
@@ -572,8 +576,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be5f505b2fb9964d9607ec859348005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyObj: {fileID: 0}
   attackDirection: {x: 0, y: 1}
   canAttack: 0
   currCooldown: 0
   maxCooldown: 5
   Player: {fileID: 0}
+--- !u!114 &2121065998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121065991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4151b1429930ba47a0ff61029360e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.05
+  attackDamage: 1
+  maxHealth: 3
+  myRb: {fileID: 0}
+  myAnim: {fileID: 0}
+--- !u!114 &2121065999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121065991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3bdcb857d80f749afc06a029140624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObj: {fileID: 0}
+  currHealth: 0

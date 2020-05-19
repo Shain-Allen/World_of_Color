@@ -3435,6 +3435,8 @@ GameObject:
   - component: {fileID: 2055061651}
   - component: {fileID: 2055061652}
   - component: {fileID: 2055061647}
+  - component: {fileID: 2055061653}
+  - component: {fileID: 2055061654}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3457,6 +3459,7 @@ MonoBehaviour:
   transform: {fileID: 2055061649}
   movementSpeed: 5
   moveDir: {x: 0, y: 0}
+  combatdir: {fileID: 0}
 --- !u!212 &2055061648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3630,6 +3633,40 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: ee8896c6c4802a84eaff2029dbfaef63, type: 3}
   EmptyHeart: {fileID: 21300000, guid: 5cb259ffa1430364ca842a313ceab796, type: 3}
   PlayerMat: {fileID: 2100000, guid: 88b4f80578be4b144b72d27a4c83a532, type: 2}
+--- !u!50 &2055061653
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055061646}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2055061654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055061646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd28aa678d37824bbc5ccd9f4d27b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackdir: 0
 --- !u!1 &2111031672
 GameObject:
   m_ObjectHideFlags: 0

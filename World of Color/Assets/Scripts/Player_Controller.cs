@@ -11,12 +11,16 @@ public class Player_Controller : MonoBehaviour
     [HideInInspector]
     public Vector2 moveDir;
 
+    //attack combat direction passthrough
+    public Player_Combat combatdir;
+
     public void FixedUpdate()
     {
         if (moveDir.x > 0.1)
         {
             //move right
             transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+            combatdir.attackdir = Player_Combat.AttackDir.right;
         }
         else if (moveDir.x < -0.1)
         {
@@ -39,10 +43,5 @@ public class Player_Controller : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<Vector2>();
-    }
-
-    public void Attack1(InputAction.CallbackContext context)
-    {
-        //put attack logic stuff here
     }
 }

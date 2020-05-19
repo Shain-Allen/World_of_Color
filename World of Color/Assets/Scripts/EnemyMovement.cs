@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
-                        switchAnimations(direction);
+                        enemyObj.myAnim.SetInteger("state", 4); //idle
                         myAttack.canAttack = true;
                         myAttack.setAttackParameters(direction);
                     }
@@ -164,19 +164,19 @@ public class EnemyMovement : MonoBehaviour
     {
         if(direction == Vector2.up)
         {
-            enemyObj.myAnim.SetInteger("state", 0);
+            enemyObj.myAnim.SetInteger("state", 0); //up
         }
         if (direction == Vector2.down)
         {
-            enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetInteger("state", 1); //down
         }
         if (direction == Vector2.left)
         {
-            enemyObj.myAnim.SetInteger("state", 2);
+            enemyObj.myAnim.SetInteger("state", 2); //left
         }
         if (direction == Vector2.right)
         {
-            enemyObj.myAnim.SetInteger("state", 3);
+            enemyObj.myAnim.SetInteger("state", 3); //right
         }
     }
 }

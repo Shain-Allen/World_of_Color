@@ -22,16 +22,17 @@ public class EnemyHealth : MonoBehaviour
         {
             currHealth = enemyObj.maxHealth;
         }
+
         if(currHealth <= 0)
         {
-            //play death animation
+            //TODO: play death animation
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.transform.name.Contains("Player"))
+        if(collision.gameObject.name == "Player")
         {
             currHealth--;
         }

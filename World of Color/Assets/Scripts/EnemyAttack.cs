@@ -29,12 +29,13 @@ public class EnemyAttack : MonoBehaviour
     {
         if(canAttack && currCooldown >= maxCooldown)
         {
-            //enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetBool("attack", true);
             Player.GetComponent<Player_Health>().health -= enemyObj.attackDamage;
             currCooldown = 0;
         }
         else
         {
+            enemyObj.myAnim.SetBool("attack", false);
             currCooldown += Time.deltaTime;
         }
     }

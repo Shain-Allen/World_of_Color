@@ -17,8 +17,8 @@ public class EnemyMovement : MonoBehaviour
 
     //calculating movement goals/targets
     public Vector2 direction = Vector2.zero;
-    public Vector2 minDistFromPlayer = new Vector2(1.0f, 1.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.25f;
+    public Vector2 minDistFromPlayer = new Vector2(1.25f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.5f;
 
     public Vector2 target = Vector2.zero;
     public Vector2 destination = Vector2.up;
@@ -132,7 +132,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Move()
     {
-        //keep moving until we reach our current destination (make sure we're not going past our target)
+        //keep moving until we reach our current destination (make sure we're not going too close to the player)
         while (Vector2.Distance(transform.position, destination) > 0.0001f && !isNearPlayer())
         {
             Vector2 newPos = Vector2.MoveTowards(transform.position, destination, enemyObj.speed);
@@ -164,19 +164,19 @@ public class EnemyMovement : MonoBehaviour
     {
         if(direction == Vector2.up)
         {
-            //enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetInteger("state", 0);
         }
         if (direction == Vector2.down)
         {
-            //enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetInteger("state", 1);
         }
         if (direction == Vector2.left)
         {
-            //enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetInteger("state", 2);
         }
         if (direction == Vector2.right)
         {
-            //enemyObj.myAnim.SetInteger("state", 1);
+            enemyObj.myAnim.SetInteger("state", 3);
         }
     }
 }

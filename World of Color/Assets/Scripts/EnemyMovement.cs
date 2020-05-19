@@ -15,8 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public float distToChasePlayer = float.MaxValue;
 
     //movement stats
-    public float speed = 0.01f;
-    public Vector2 direction = new Vector2(1, 0);
+    public float speed = 0.1f;
+    public Vector2 direction = Vector2.up;
 
     //calculating movement goals/targets
     public float buffer = 1.0f;
@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     public bool isDoneMoving = true;
 
     private Rigidbody2D myRb;
+    private Animator myAnim;
 
     public GameObject Player;
 
@@ -58,11 +59,19 @@ public class EnemyMovement : MonoBehaviour
             switch (enemyState)
             {
                 case EnemyState.Chase:
-                    //only move if we haven't reached the target (horizontally/vertically, not diagonally)
-                    if (Mathf.Abs(transform.position.x - Player.transform.position.x) > buffer && Mathf.Abs(transform.position.y - Player.transform.position.y) > buffer)
+
+                    //only move if we haven't reached the target
+                    if (!isOnTarget())
                     {
                         target = FindClosestAdjacent(Player.transform.position);
                         ChoosePath(target);
+                    }
+                    //stp moving and attack when we reach the target
+                    else
+                    {
+                        isDoneMoving = true;
+                        GetComponent<EnemyAttack>().setAttackParameters(direction);
+
                     }
                     break;
                     
@@ -98,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
     void ChoosePath(Vector2 target)
     {
         //enemy can choose to continue going straight, turn left/right, or turn back around (currently only 4 directions)
-        Vector2[] possibleMovements = { direction, -direction, new Vector2(direction.y, direction.x), new Vector2(-direction.y, -direction.x) };
+        Vector2[] possibleMovements = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
         //for keeping track of the optimal path
         float distToTarget = float.MaxValue;
@@ -115,6 +124,8 @@ public class EnemyMovement : MonoBehaviour
         }
 
         direction = possibleMovements[bestPath];
+        //switchAnimations(direction);
+
         destination = (Vector2)transform.position + direction;
 
         StartCoroutine(Move());
@@ -123,7 +134,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going past our target)
-        while(Vector2.Distance(transform.position, destination) > 0.0001f && Vector2.Distance(transform.position, target) > 0.0001f)
+        while (Vector2.Distance(transform.position, destination) > 0.0001f && !isOnTarget())
         {
             Vector2 newPos = Vector2.MoveTowards(transform.position, destination, speed);
             myRb.MovePosition(newPos);
@@ -132,5 +143,39 @@ public class EnemyMovement : MonoBehaviour
 
         isDoneMoving = true;
         StopAllCoroutines();
+    }
+
+    bool isOnTarget()
+    {
+        //direction is facing player
+        direction = (Vector2)Player.transform.position - target;
+        direction.Normalize();
+
+        if(Vector2.Distance((Vector2)transform.position + (direction * buffer), Player.transform.position) > 0.5f)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    //switch animation based on direction
+    void switchAnimations(Vector2 direction)
+    {
+        if(direction == Vector2.up)
+        {
+            //myAnim.SetInteger("state", 1);
+        }
+        if (direction == Vector2.down)
+        {
+            //myAnim.SetInteger("state", 1);
+        }
+        if (direction == Vector2.left)
+        {
+            //myAnim.SetInteger("state", 1);
+        }
+        if (direction == Vector2.right)
+        {
+            //myAnim.SetInteger("state", 1);
+        }
     }
 }

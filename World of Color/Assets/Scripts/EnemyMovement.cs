@@ -70,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
-                        GetComponent<EnemyAttack>().setAttackParameters(direction);
+                        //GetComponent<EnemyAttack>().setAttackParameters(direction);
 
                     }
                     break;

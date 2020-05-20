@@ -29,13 +29,22 @@ public class EnemyAttack : MonoBehaviour
     {
         if(canAttack && currCooldown >= maxCooldown)
         {
-            enemyObj.myAnim.SetBool("attack", true);
+            //choose attack animation based on direction
+            switchAnimations(attackDirection, true);
+
+            //decrement enemy health
             Player.GetComponent<Player_Health>().health -= enemyObj.attackDamage;
+
+            //reset cooldown
             currCooldown = 0;
         }
         else
         {
+            //go to idle when not attacking
+            enemyObj.myAnim.SetInteger("state", 4);
             enemyObj.myAnim.SetBool("attack", false);
+
+            //increment cooldown
             currCooldown += Time.deltaTime;
         }
     }
@@ -43,5 +52,28 @@ public class EnemyAttack : MonoBehaviour
     public void setAttackParameters(Vector2 direction)
     {
         attackDirection = direction;
+    }
+
+    //choose attack animation based on direction
+    void switchAnimations(Vector2 direction, bool attack)
+    {
+        if (direction == Vector2.up)
+        {
+            enemyObj.myAnim.SetInteger("state", 5); //up attack
+        }
+        if (direction == Vector2.down)
+        {
+            enemyObj.myAnim.SetInteger("state", 6); //down attack
+        }
+        if (direction == Vector2.left)
+        {
+            enemyObj.myAnim.SetInteger("state", 7); //left attack
+        }
+        if (direction == Vector2.right)
+        {
+            enemyObj.myAnim.SetInteger("state", 8); //right attack
+        }
+
+        enemyObj.myAnim.SetBool("attack", attack);
     }
 }

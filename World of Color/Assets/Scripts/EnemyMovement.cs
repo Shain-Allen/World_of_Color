@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
         Patrol
     }
     public EnemyState enemyState = EnemyState.Chase;
-    public float distToChasePlayer = float.MaxValue;
+    public float distToChasePlayer = 5.0f;
 
     //calculating movement goals/targets
     public Vector2 direction = Vector2.zero;
@@ -68,14 +68,14 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
-                        enemyObj.myAnim.SetInteger("state", 4); //idle
+                        enemyObj.myAnim.SetInteger("state", 4);
                         myAttack.canAttack = true;
                         myAttack.setAttackParameters(direction);
                     }
                     break;
                     
                 case EnemyState.Patrol:
-                    //travel on a fixed path?
+                    enemyObj.myAnim.SetInteger("state", 4);
                     break;
             }
         }

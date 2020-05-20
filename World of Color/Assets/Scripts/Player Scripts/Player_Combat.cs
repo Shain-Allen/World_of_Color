@@ -24,6 +24,8 @@ public class Player_Combat : MonoBehaviour
     public AttackDir attackdir = AttackDir.down;
     public PolygonCollider2D[] attackArea = null;
 
+    public Animator anim;
+
     private void FixedUpdate()
     {
         if(isAttacking == true && currentCoolDown <= 0.1f)

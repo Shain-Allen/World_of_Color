@@ -1,6 +1,6 @@
 ﻿//Menu_Controller.cs
 //By: Conor Brennan
-//Last Edited: 5/17/2020
+//Last Edited: 5/19/2020
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +11,25 @@ using System.Linq;
 
 public class Menu_Controller : MonoBehaviour
 {
+    public static bool isPaused = false;
+
+    public GameObject pausePanel;
+
+    public GameObject pauseMenu;
+
+    public GameObject settingsMenu;
+
+    public GameObject mainCanvas;
+
+    public string mainMenu;
+
     public AudioMixer mainMixer;
 
     public TMPro.TMP_Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
 
-    void Start()
+    private void Start()
     {
         //gives the resolutions array all available screen resolutions, not including resolutions with different refresh rates
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
@@ -49,6 +61,21 @@ public class Menu_Controller : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
     //loads the scene that comes after the current scene in the build index
     public void Next_Scene()
     {
@@ -73,10 +100,39 @@ public class Menu_Controller : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    //sets the screens resolution to what was selected in the resolution dropdown
     public void Set_Resolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+
+    public void Pause()
+    {
+        if (pauseMenu.activeSelf == false)
+        {
+            settingsMenu.SetActive(false);
+            pauseMenu.SetActive(true);
+        }
+        mainCanvas.SetActive(false);
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void Resume()
+    {
+        pausePanel.SetActive(false);
+        mainCanvas.SetActive(true);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    //loads the MainMenu scene
+    public void Load_Menu()
+    {
+        SceneManager.LoadScene(mainMenu);
+    }
+
 }
  

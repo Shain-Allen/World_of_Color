@@ -31,6 +31,11 @@ public class Player_Health : MonoBehaviour
             health = numOfHearts;
         }
 
+        if (numOfHearts > hearts.Length)
+        {
+            numOfHearts = hearts.Length;
+        }
+
 
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -58,5 +63,15 @@ public class Player_Health : MonoBehaviour
     {
         distance = (0.5f / numOfHearts) * health + 0.06f;
         PlayerMat.SetFloat("Distance", distance);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    public void Heal(int healAmount)
+    {
+        health += healAmount;
     }
 }

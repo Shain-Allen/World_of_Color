@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public EnemyObject enemyObj;
+    public GenericStats myStats;
     public EnemyAttack myAttack;
 
     // in case we add additional movement options
@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
         Patrol
     }
     public EnemyState enemyState = EnemyState.Chase;
-    public float distToChasePlayer = float.MaxValue;
+    public float distToChasePlayer = 5.0f;
 
     //calculating movement goals/targets
     public Vector2 direction = Vector2.zero;
@@ -24,14 +24,14 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 destination = Vector2.up;
     public bool isDoneMoving = true;
 
+    public Animator myAnim;
+    public Rigidbody2D myRb;
+
     public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        myAttack = GetComponent<EnemyAttack>();
-        enemyObj = GetComponent<EnemyObject>();
-
         Player = GameObject.Find("Player");
     }
 
@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
                     target = FindClosestAdjacent(Player.transform.position);
                     
                     //only move if we haven't reached the target
-                    if (!isNearPlayer())
+                    if (!IsNearPlayer())
                     {
                         myAttack.canAttack = false;
                         ChoosePath(target);
@@ -69,13 +69,15 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
+                        myAnim.SetBool("is_walking", false);
                         myAttack.canAttack = true;
                         myAttack.attackDirection = direction;
                     }
                     break;
                     
-                case EnemyState.Patrol:
-                    enemyObj.myAnim.SetInteger("state", 4); //idle
+                case EnemyState.Patrol:     //maybe travel between two different targets using ChoosePath()?
+                    isDoneMoving = true;    //remove this if we make an actual patrol path
+                    myAnim.SetBool("is_walking", false);
                     break;
             }
         }
@@ -123,7 +125,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         direction = possibleMovements[bestPath];
-        switchAnimations(direction);
+        SwitchWalkAnimations(direction);
 
         destination = (Vector2)transform.position + direction;
 
@@ -133,10 +135,10 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going too close to the player)
-        while (Vector2.Distance(transform.position, destination) > 0.0001f && !isNearPlayer())
+        while (Vector2.Distance(transform.position, destination) > 0.0001f && !IsNearPlayer())
         {
-            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, enemyObj.speed);
-            enemyObj.myRb.MovePosition(newPos);
+            Vector2 newPos = Vector2.MoveTowards(transform.position, destination, myStats.movementSpeed);
+            myRb.MovePosition(newPos);
             yield return new WaitForFixedUpdate();
         }
 
@@ -146,7 +148,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     //check if we've reached the target
-    bool isNearPlayer()
+    bool IsNearPlayer()
     {
         //direction is facing player
         Vector2 tempDirection = (Vector2)Player.transform.position - target;
@@ -163,23 +165,25 @@ public class EnemyMovement : MonoBehaviour
     }
 
     //switch animation based on what direction we're moving in/facing
-    void switchAnimations(Vector2 direction)
+    void SwitchWalkAnimations(Vector2 direction)
     {
         if(direction == Vector2.up)
         {
-            enemyObj.myAnim.SetInteger("state", 0); //up
+            myAnim.SetFloat("walk_direction", 0.0f); //up
         }
         if (direction == Vector2.down)
         {
-            enemyObj.myAnim.SetInteger("state", 1); //down
+            myAnim.SetFloat("walk_direction", 1.0f); //down
         }
         if (direction == Vector2.left)
         {
-            enemyObj.myAnim.SetInteger("state", 2); //left
+            myAnim.SetFloat("walk_direction", 2.0f); //left
         }
         if (direction == Vector2.right)
         {
-            enemyObj.myAnim.SetInteger("state", 3); //right
+            myAnim.SetFloat("walk_direction", 3.0f); //right
         }
+
+        myAnim.SetBool("is_walking", true);
     }
 }

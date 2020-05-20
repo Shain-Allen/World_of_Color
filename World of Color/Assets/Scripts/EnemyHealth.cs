@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public EnemyObject enemyObj;
+    public GenericStats myStats;
 
     public int currHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyObj = GetComponent<EnemyObject>();
-        currHealth = enemyObj.maxHealth;
+        currHealth = myStats.maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currHealth > enemyObj.maxHealth)
+        if(currHealth > myStats.maxHealth)
         {
-            currHealth = enemyObj.maxHealth;
+            currHealth = myStats.maxHealth;
         }
 
         if(currHealth <= 0)
         {
             //TODO: play death animation
-            Destroy(gameObject);
+            Destroy(gameObject, 3.0f);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //reduce health if we take damage
+    void TakeDamage(int damage)
     {
-        if(collision.gameObject.name == "Player")
-        {
-            currHealth--;
-        }
+        currHealth -= damage;
     }
 }

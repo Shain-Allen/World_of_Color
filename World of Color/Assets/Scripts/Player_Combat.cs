@@ -14,7 +14,10 @@ public class Player_Combat : MonoBehaviour
         right
     }
 
-    public const float attackCoolDown = 5f;
+    public float attackCoolDown = 1f;
+    public float attackRange = 2f;
+    public LayerMask enemyLayer;
+
     [SerializeField]
     float currentCoolDown;
     public bool isAttacking = false;
@@ -24,7 +27,30 @@ public class Player_Combat : MonoBehaviour
     {
         if(isAttacking == true && currentCoolDown <= 0.1f)
         {
-            Debug.Log("Attacked in direction " + attackdir);
+            Collider2D[] enemiesToDamage = null;
+            //Debug.Log("Attacked in direction " + attackdir);
+            if (attackdir == AttackDir.up)
+            {
+                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.up * attackRange, attackRange, enemyLayer);
+            }
+            else if(attackdir == AttackDir.down)
+            {
+                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.down * attackRange, attackRange, enemyLayer);
+            }
+            else if(attackdir == AttackDir.left)
+            {
+                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.left * attackRange, attackRange, enemyLayer);
+            }
+            else if(attackdir == AttackDir.right)
+            {
+                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.right * attackRange, attackRange, enemyLayer);
+            }
+
+            for (int i = 0; i < enemiesToDamage.Length; i++)
+            {
+                
+            }
+
             currentCoolDown = attackCoolDown;
         }
         currentCoolDown -= Time.deltaTime;

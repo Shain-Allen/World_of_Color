@@ -42,16 +42,11 @@ public class EnemyAttack : MonoBehaviour
         {
             //go to idle when not attacking
             enemyObj.myAnim.SetInteger("state", 4);
-            enemyObj.myAnim.SetBool("attack", false);
+            enemyObj.myAnim.SetBool("attack", false);   //TODO: goes back to idle too fast
 
             //increment cooldown
             currCooldown += Time.deltaTime;
         }
-    }
-
-    public void setAttackParameters(Vector2 direction)
-    {
-        attackDirection = direction;
     }
 
     //choose attack animation based on direction

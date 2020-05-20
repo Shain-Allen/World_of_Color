@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
         Patrol
     }
     public EnemyState enemyState = EnemyState.Chase;
-    public float distToChasePlayer = 5.0f;
+    public float distToChasePlayer = float.MaxValue;
 
     //calculating movement goals/targets
     public Vector2 direction = Vector2.zero;
@@ -58,6 +58,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 case EnemyState.Chase:
                     target = FindClosestAdjacent(Player.transform.position);
+                    
                     //only move if we haven't reached the target
                     if (!isNearPlayer())
                     {
@@ -68,14 +69,13 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
-                        enemyObj.myAnim.SetInteger("state", 4);
                         myAttack.canAttack = true;
-                        myAttack.setAttackParameters(direction);
+                        myAttack.attackDirection = direction;
                     }
                     break;
                     
                 case EnemyState.Patrol:
-                    enemyObj.myAnim.SetInteger("state", 4);
+                    enemyObj.myAnim.SetInteger("state", 4); //idle
                     break;
             }
         }
@@ -149,13 +149,16 @@ public class EnemyMovement : MonoBehaviour
     bool isNearPlayer()
     {
         //direction is facing player
-        direction = (Vector2)Player.transform.position - target;
-        direction.Normalize();
+        Vector2 tempDirection = (Vector2)Player.transform.position - target;
+        tempDirection.Normalize();
 
         if (Vector2.Distance((Vector2)transform.position + (direction * minDistFromPlayer), Player.transform.position) > buffer)
         {
             return false;
         }
+
+        //if we have reached the target, face the player
+        direction = tempDirection;
         return true;
     }
 

@@ -16,12 +16,13 @@ public class Player_Combat : MonoBehaviour
 
     public float attackCoolDown = 1f;
     public float attackRange = 2f;
-    public LayerMask enemyLayer;
+    public ContactFilter2D enemyLayer;
 
     [SerializeField]
     float currentCoolDown;
     public bool isAttacking = false;
     public AttackDir attackdir = AttackDir.down;
+    public PolygonCollider2D[] attackArea = null;
 
     private void FixedUpdate()
     {
@@ -31,24 +32,25 @@ public class Player_Combat : MonoBehaviour
             //Debug.Log("Attacked in direction " + attackdir);
             if (attackdir == AttackDir.up)
             {
-                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.up * attackRange, attackRange, enemyLayer);
+                //indexing into the array via enum
+                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.down)
             {
-                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.down * attackRange, attackRange, enemyLayer);
+                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.left)
             {
-                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.left * attackRange, attackRange, enemyLayer);
+                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.right)
             {
-                enemiesToDamage = Physics2D.OverlapCircleAll(Vector2.right * attackRange, attackRange, enemyLayer);
+                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
 
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                
+                enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(0);
             }
 
             currentCoolDown = attackCoolDown;

@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     //reduce health if we take damage
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currHealth -= damage;
     }

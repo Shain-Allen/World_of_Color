@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
 
     public int currHealth;
 
+    public AudioSource takeDamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
     //reduce health if we take damage
     public void TakeDamage(int damage)
     {
+        takeDamageSound.Play();
         currHealth -= damage;
     }
 }

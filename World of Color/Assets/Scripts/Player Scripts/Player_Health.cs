@@ -17,6 +17,9 @@ public class Player_Health : MonoBehaviour
     public Material PlayerMat;
     float distance;
 
+    //low health sound
+    public AudioSource lowHealthSound;
+
     private void Update()
     {
         HealthUIController();
@@ -68,6 +71,11 @@ public class Player_Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        if(health <= 3)
+        {
+            lowHealthSound.Play();
+        }
     }
 
     public void Heal(int healAmount)

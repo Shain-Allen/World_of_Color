@@ -26,10 +26,14 @@ public class Player_Combat : MonoBehaviour
 
     public Animator anim;
 
+    public AudioSource attackSound;
+
     private void FixedUpdate()
     {
         if(isAttacking == true && currentCoolDown <= 0.1f)
         {
+            attackSound.Play();
+
             Collider2D[] enemiesToDamage = null;
             //Debug.Log("Attacked in direction " + attackdir);
             if (attackdir == AttackDir.up)

@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
 
     public AudioSource takeDamageSound;
 
+    public GameObject RoomManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,8 @@ public class EnemyHealth : MonoBehaviour
 
         if(currHealth <= 0)
         {
-            //TODO: play death animation
-            Destroy(gameObject, 3.0f);
+            //play purification animation?
+            RoomManager.GetComponent<StartingAreaManager>().Purified();
         }
     }
 

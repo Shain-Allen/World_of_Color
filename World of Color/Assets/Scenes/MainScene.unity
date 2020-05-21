@@ -10767,6 +10767,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a861c54a3e3968f45b22020157293988, type: 2}
+    - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: RoomManager
+      value: 
+      objectReference: {fileID: 516815107}
     - target: {fileID: 4982840474907815791, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: m_Enabled
@@ -11859,7 +11864,7 @@ MonoBehaviour:
   attackRange: 2
   enemyLayer:
     useTriggers: 1
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0

@@ -390,7 +390,7 @@ MonoBehaviour:
   distToChasePlayer: 5
   direction: {x: 0, y: 1}
   minDistFromPlayer: {x: 1.25, y: 1.5}
-  buffer: 0.3
+  buffer: 0.25
   patrolTargets:
   - {x: 0, y: 0}
   - {x: -7, y: 0}

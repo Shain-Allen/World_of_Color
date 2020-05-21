@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     //calculating movement goals/targets
     public Vector2 direction = Vector2.up;
     public Vector2 minDistFromPlayer = new Vector2(1.25f, 1.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.3f;
+    public float buffer = 0.25f;
 
     public Vector2[] patrolTargets;
     public int currPatrolTarget = 0;
@@ -64,7 +64,7 @@ public class EnemyMovement : MonoBehaviour
                     chaseTarget = FindClosestAdjacent(Player.transform.position);
 
                     //only move if we haven't reached the target
-                    if (!CheckDistanceFromPlayer(buffer))
+                    if (!IsCloseToPlayer(buffer))
                     {
                         myAttack.canAttack = false;
                         ChoosePath(chaseTarget);
@@ -86,7 +86,7 @@ public class EnemyMovement : MonoBehaviour
                         reachedTarget = true;
                     }
 
-                    //get the next patrol point if necessary
+                    //get the next patrol point if we reached the current target
                     if (reachedTarget)
                     {
                         currPatrolTarget = (currPatrolTarget + 1) % patrolTargets.Length;
@@ -145,6 +145,8 @@ public class EnemyMovement : MonoBehaviour
         SwitchWalkAnimations(direction);
 
         destination = (Vector2)transform.position + direction;
+        destination.x = Mathf.Round(destination.x);
+        destination.y = Mathf.Round(destination.y);
 
         StartCoroutine(Move());
     }
@@ -152,10 +154,10 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going too close to the player)
-        while (Vector2.Distance(transform.position, destination) > 0.0001f)
+        while (Vector2.Distance(transform.position, destination) > 0.001f)
         {
             //if we're chasing make sure were not too close to the player
-            if(enemyState == EnemyState.Chase && CheckDistanceFromPlayer(buffer))
+            if(enemyState == EnemyState.Chase && IsCloseToPlayer(buffer))
             {
                 break;
             }
@@ -172,20 +174,20 @@ public class EnemyMovement : MonoBehaviour
 
 
     //check if we're within <dist> of player
-    bool CheckDistanceFromPlayer(float dist)
+    bool IsCloseToPlayer(float dist)
     {
         //direction is facing player
         Vector2 tempDirection = (Vector2)Player.transform.position - chaseTarget;
         tempDirection.Normalize();
 
-        if (Vector2.Distance((Vector2)transform.position + (tempDirection * minDistFromPlayer), Player.transform.position) > dist)
+        if (Vector2.Distance((Vector2)transform.position + (tempDirection * minDistFromPlayer), Player.transform.position) <= dist)
         {
-            return false;
+            //if we have reached the target, face the player
+            direction = tempDirection;
+            return true;
         }
 
-        //if we have reached the target, face the player
-        direction = tempDirection;
-        return true;
+        return false;
     }
 
     //switch animation based on what direction we're moving in/facing

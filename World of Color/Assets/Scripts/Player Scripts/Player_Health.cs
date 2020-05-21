@@ -71,8 +71,7 @@ public class Player_Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
-        if(health <= 3)
+        if (health <= 3)
         {
             lowHealthSound.Play();
         }

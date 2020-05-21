@@ -12,16 +12,20 @@ public class EnemyMovement : MonoBehaviour
         Chase,
         Patrol
     }
-    public EnemyState enemyState = EnemyState.Chase;
+    public EnemyState enemyState = EnemyState.Patrol;
     public float distToChasePlayer = 5.0f;
 
     //calculating movement goals/targets
-    public Vector2 direction = Vector2.zero;
-    public Vector2 minDistFromPlayer = new Vector2(1.25f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.5f;
+    public Vector2 direction = Vector2.up;
+    public Vector2 minDistFromPlayer = new Vector2(1.25f, 1.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.3f;
 
-    public Vector2 target = Vector2.zero;
-    public Vector2 destination = Vector2.up;
+    public Vector2[] patrolTargets;
+    public int currPatrolTarget = 0;
+    public bool reachedTarget = false;
+
+    public Vector2 chaseTarget;
+    public Vector2 destination;
     public bool isDoneMoving = true;
 
     public Animator myAnim;
@@ -57,13 +61,13 @@ public class EnemyMovement : MonoBehaviour
             switch (enemyState)
             {
                 case EnemyState.Chase:
-                    target = FindClosestAdjacent(Player.transform.position);
-                    
+                    chaseTarget = FindClosestAdjacent(Player.transform.position);
+
                     //only move if we haven't reached the target
-                    if (!IsNearPlayer())
+                    if (!CheckDistanceFromPlayer(buffer))
                     {
                         myAttack.canAttack = false;
-                        ChoosePath(target);
+                        ChoosePath(chaseTarget);
                     }
                     //stop moving and attack when we reach the target
                     else
@@ -75,9 +79,22 @@ public class EnemyMovement : MonoBehaviour
                     }
                     break;
                     
-                case EnemyState.Patrol:     //maybe travel between two different targets using ChoosePath()?
-                    isDoneMoving = true;    //remove this if we make an actual patrol path
-                    myAnim.SetBool("is_walking", false);
+                case EnemyState.Patrol:
+                    //check if we reached our current target
+                    if (Vector2.Distance(transform.position, patrolTargets[currPatrolTarget]) <= buffer)
+                    {
+                        reachedTarget = true;
+                    }
+
+                    //get the next patrol point if necessary
+                    if (reachedTarget)
+                    {
+                        currPatrolTarget = (currPatrolTarget + 1) % patrolTargets.Length;
+                        reachedTarget = false;
+                    }
+
+                    //move to that point
+                    ChoosePath(patrolTargets[currPatrolTarget]);
                     break;
             }
         }
@@ -135,8 +152,15 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going too close to the player)
-        while (Vector2.Distance(transform.position, destination) > 0.0001f && !IsNearPlayer())
+        while (Vector2.Distance(transform.position, destination) > 0.0001f)
         {
+            //if we're chasing make sure were not too close to the player
+            if(enemyState == EnemyState.Chase && CheckDistanceFromPlayer(buffer))
+            {
+                break;
+            }
+
+            //move
             Vector2 newPos = Vector2.MoveTowards(transform.position, destination, myStats.movementSpeed);
             myRb.MovePosition(newPos);
             yield return new WaitForFixedUpdate();
@@ -147,14 +171,14 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    //check if we've reached the target
-    bool IsNearPlayer()
+    //check if we're within <dist> of player
+    bool CheckDistanceFromPlayer(float dist)
     {
         //direction is facing player
-        Vector2 tempDirection = (Vector2)Player.transform.position - target;
+        Vector2 tempDirection = (Vector2)Player.transform.position - chaseTarget;
         tempDirection.Normalize();
 
-        if (Vector2.Distance((Vector2)transform.position + (direction * minDistFromPlayer), Player.transform.position) > buffer)
+        if (Vector2.Distance((Vector2)transform.position + (tempDirection * minDistFromPlayer), Player.transform.position) > dist)
         {
             return false;
         }

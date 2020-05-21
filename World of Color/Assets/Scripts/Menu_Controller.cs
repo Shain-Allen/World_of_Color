@@ -63,6 +63,7 @@ public class Menu_Controller : MonoBehaviour
 
     private void Update()
     {
+        //if the game is paused while Escape is pressed, the game will resume, otherwise the game will be pause
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused)
@@ -107,8 +108,10 @@ public class Menu_Controller : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    //opens the pause menu and sets the time scale to zero
     public void Pause()
     {
+        //if the pause menu is not active when Pause() is ran, it is set to active and the settings menu is deactivated
         if (pauseMenu.activeSelf == false)
         {
             settingsMenu.SetActive(false);
@@ -120,6 +123,7 @@ public class Menu_Controller : MonoBehaviour
         isPaused = true;
     }
 
+    //closes the pause menu and sets the time scale back to one
     public void Resume()
     {
         pausePanel.SetActive(false);

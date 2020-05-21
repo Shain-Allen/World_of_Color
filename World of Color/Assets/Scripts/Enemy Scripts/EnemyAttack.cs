@@ -53,33 +53,36 @@ public class EnemyAttack : MonoBehaviour
         //choose attack animation and collider based on attack direction
         SwitchAttackAnimations(attackDirection);
 
-        //wait before resetting animation/collider
-        yield return new WaitForSeconds(attackDuration);
-
         //check if we actually hit the player and deal damage if we did
         ContactFilter2D newContactFilter = new ContactFilter2D();
-        newContactFilter.layerMask = playerLayer;
-        newContactFilter.useLayerMask = true;
+            newContactFilter.layerMask = playerLayer;
+            newContactFilter.useLayerMask = true;
         Collider2D[] hitByAttack = new Collider2D[10];
+
         int numColliders = Physics2D.OverlapCollider(currCollider.GetComponent<PolygonCollider2D>(), newContactFilter, hitByAttack);
         for(int i = 0; i < numColliders; i++)
         {
+            //only deal damage once
             if(hitByAttack[i].gameObject.tag == "Player")
             {
-                Player.GetComponent<Player_Health>().health -= myStats.attackDamage;
+                Player.GetComponent<Player_Health>().TakeDamage(myStats.attackDamage);
+                break;
             }
         }
+
+        //start cooldown
+        currCooldown = 0;
+
+        //wait before resetting animation/collider
+        yield return new WaitForSeconds(attackDuration);
 
         //go to idle when not attacking
         myAnim.SetBool("is_attacking", false);
 
-        //disable the previous collider and switch to the new (idle) collider
+        //disable the previous collider and switch to the new collider for idle
         currCollider.SetActive(false);
         currCollider = colliders[4];
         currCollider.SetActive(true);
-
-        //start cooldown
-        currCooldown = 0;
 
         StopAllCoroutines();
     }

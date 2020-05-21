@@ -8,12 +8,12 @@ public class StartingAreaManager : MonoBehaviour
     public int unpurifiedMonsters;
     public int purifiedMonsters;
     public BoxCollider2D roomArea;
-    public ContactFilter2D enemyies;
+    public ContactFilter2D enemies;
 
     private void Awake()
     {
-        Collider2D[] result = null;
-        unpurifiedMonsters = Physics2D.OverlapCollider(roomArea, enemyies, result);
+        Collider2D[] result = new Collider2D[50];
+        unpurifiedMonsters = Physics2D.OverlapCollider(roomArea, enemies, result);
     }
 
     public void Purified()

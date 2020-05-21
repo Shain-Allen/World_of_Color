@@ -22,7 +22,7 @@ public class Player_Combat : MonoBehaviour
     float currentCoolDown;
     public bool isAttacking = false;
     public AttackDir attackdir = AttackDir.down;
-    public PolygonCollider2D[] attackArea;
+    public PolygonCollider2D[] attackArea = new PolygonCollider2D[4];
 
     public Animator anim;
 
@@ -34,29 +34,33 @@ public class Player_Combat : MonoBehaviour
         {
             attackSound.Play();
 
-            Collider2D[] enemiesToDamage = null;
+            Collider2D[] enemiesToDamage = new Collider2D[50];
+            int numOfEnemies = 0;
             //Debug.Log("Attacked in direction " + attackdir);
             if (attackdir == AttackDir.up)
             {
                 //indexing into the array via enum
-                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
+                numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.down)
             {
-                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
+                numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.left)
             {
-                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
+                numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
             else if(attackdir == AttackDir.right)
             {
-                Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
+                numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
 
-            for (int i = 0; i < enemiesToDamage.Length; i++)
+            for (int i = 0; i < numOfEnemies; i++)
             {
-                enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(0);
+                if (enemiesToDamage[i].GetComponent<EnemyHealth>() != null)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(0);
+                }
             }
 
             currentCoolDown = attackCoolDown;

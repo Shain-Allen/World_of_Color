@@ -26,7 +26,6 @@ public class Player_Health : MonoBehaviour
         PlayerMatController();
     }
 
-
     void HealthUIController()
     {
         if (health > numOfHearts)

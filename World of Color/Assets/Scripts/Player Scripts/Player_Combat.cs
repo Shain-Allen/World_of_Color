@@ -22,7 +22,7 @@ public class Player_Combat : MonoBehaviour
     float currentCoolDown;
     public bool isAttacking = false;
     public AttackDir attackdir = AttackDir.down;
-    public PolygonCollider2D[] attackArea = null;
+    public PolygonCollider2D[] attackArea;
 
     public Animator anim;
 

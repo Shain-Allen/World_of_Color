@@ -26,6 +26,11 @@ public class Player_Health : MonoBehaviour
     public Vector2[] shieldDirections = { Vector2.down, Vector2.up, Vector2.left, Vector2.right };
     public Animator myAnim;
 
+    private void Start()
+    {
+        PlayerMat.SetFloat("Distance", 0.5f);
+    }
+
     private void Update()
     {
         HealthUIController();
@@ -75,9 +80,8 @@ public class Player_Health : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 attackDirection)
     {
-        if (attackDirection == -shieldDirections[(int)myAttack.attackdir] && !myShield.isBroken && !myAnim.GetBool("isMoving"))
+        if (attackDirection == -shieldDirections[(int)myAttack.attackdir] && !myShield.isBroken && !myAnim.GetBool("IsMoving"))
         {
-            Debug.Log("blocked an attack");
             myShield.BlockAttack();
         }
         else

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982840473044472506}
-  - component: {fileID: 4982840473044472507}
+  - component: {fileID: 3035276227927044720}
   m_Layer: 9
   m_Name: UpAttackCollider
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 4982840474907815784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4982840473044472507
+--- !u!60 &3035276227927044720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -56,16 +56,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.29813582, y: 0.90163755}
-      - {x: -0.43030906, y: 0.3508209}
-      - {x: -0.2855069, y: -0.6638855}
-      - {x: 0.3096894, y: -0.6759795}
-      - {x: 0.39667413, y: -0.40250757}
-      - {x: 0.7905748, y: -0.17994493}
-      - {x: 0.78327745, y: 0.15136838}
-      - {x: 0.43858135, y: 0.28340882}
-      - {x: 0.3223182, y: 0.9258266}
+    - - {x: 0.02658531, y: 1.2836568}
+      - {x: -0.4991058, y: 0.84087324}
+      - {x: -0.54347616, y: -0.055553913}
+      - {x: 0.5523383, y: -0.02009672}
+      - {x: 0.4991055, y: 0.87633044}
 --- !u!1 &4982840473871723719
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4982840473871723716
 Transform:
   m_ObjectHideFlags: 0
@@ -122,16 +117,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.29813582, y: 0.90163755}
-      - {x: -0.43030906, y: 0.3508209}
-      - {x: -0.2855069, y: -0.6638855}
-      - {x: 0.3096894, y: -0.6759795}
-      - {x: 0.39667413, y: -0.40250757}
-      - {x: 0.7905748, y: -0.17994493}
-      - {x: 0.78327745, y: 0.15136838}
-      - {x: 0.43858135, y: 0.28340882}
-      - {x: 0.3223182, y: 0.9258266}
+    - - {x: 0.07089421, y: 0.5833793}
+      - {x: -0.29813582, y: 0.48501688}
+      - {x: -0.518927, y: 0.14694262}
+      - {x: -0.48046598, y: -0.16748619}
+      - {x: -0.15998513, y: -0.48982978}
+      - {x: 0.17512974, y: -0.51774323}
+      - {x: 0.50699794, y: -0.22426629}
+      - {x: 0.5883184, y: 0.16909686}
+      - {x: 0.43858135, y: 0.38978007}
+      - {x: 0.34890348, y: 0.50920594}
 --- !u!1 &4982840473999624992
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982840473999624993}
-  - component: {fileID: 4982840473999624998}
+  - component: {fileID: 3073245691581602956}
   m_Layer: 9
   m_Name: LeftAttackCollider
   m_TagString: Untagged
@@ -163,7 +158,7 @@ Transform:
   m_Father: {fileID: 4982840474907815784}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4982840473999624998
+--- !u!60 &3073245691581602956
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +168,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -188,16 +183,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.29813582, y: 0.90163755}
-      - {x: -0.43030906, y: 0.3508209}
-      - {x: -0.2855069, y: -0.6638855}
-      - {x: 0.3096894, y: -0.6759795}
-      - {x: 0.39667413, y: -0.40250757}
-      - {x: 0.7905748, y: -0.17994493}
-      - {x: 0.78327745, y: 0.15136838}
-      - {x: 0.43858135, y: 0.28340882}
-      - {x: 0.3223182, y: 0.9258266}
+    - - {x: -1.0899988, y: 0.37063676}
+      - {x: -1.4295928, y: 0.043088824}
+      - {x: -1.0929067, y: -0.25943226}
+      - {x: 0.10924947, y: -0.5253602}
+      - {x: 0.047154605, y: 0.53948814}
 --- !u!1 &4982840474395901281
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982840474395901286}
-  - component: {fileID: 4982840474395901287}
+  - component: {fileID: 6281729011227859489}
   m_Layer: 9
   m_Name: DownAttackCollider
   m_TagString: Untagged
@@ -229,7 +219,7 @@ Transform:
   m_Father: {fileID: 4982840474907815784}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4982840474395901287
+--- !u!60 &6281729011227859489
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +229,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -254,16 +244,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.29813582, y: 0.90163755}
-      - {x: -0.43030906, y: 0.3508209}
-      - {x: -0.2855069, y: -0.6638855}
-      - {x: 0.3096894, y: -0.6759795}
-      - {x: 0.39667413, y: -0.40250757}
-      - {x: 0.7905748, y: -0.17994493}
-      - {x: 0.78327745, y: 0.15136838}
-      - {x: 0.43858135, y: 0.28340882}
-      - {x: 0.3223182, y: 0.9258266}
+    - - {x: 0.38105685, y: -0.56011194}
+      - {x: 0.57316947, y: 0.025360227}
+      - {x: -0.516891, y: 0.13059562}
+      - {x: -0.49335158, y: -0.55195296}
+      - {x: -0.08577192, y: -1.0915378}
 --- !u!1 &4982840474588088894
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982840474588088895}
-  - component: {fileID: 4982840474588088892}
+  - component: {fileID: 8472471867289429586}
   m_Layer: 9
   m_Name: RightAttackCollider
   m_TagString: Untagged
@@ -295,7 +280,7 @@ Transform:
   m_Father: {fileID: 4982840474907815784}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4982840474588088892
+--- !u!60 &8472471867289429586
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +290,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -320,16 +305,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.29813582, y: 0.90163755}
-      - {x: -0.43030906, y: 0.3508209}
-      - {x: -0.2855069, y: -0.6638855}
-      - {x: 0.3096894, y: -0.6759795}
-      - {x: 0.39667413, y: -0.40250757}
-      - {x: 0.7905748, y: -0.17994493}
-      - {x: 0.78327745, y: 0.15136838}
-      - {x: 0.43858135, y: 0.28340882}
-      - {x: 0.3223182, y: 0.9258266}
+    - - {x: 0.939349, y: 0.52132934}
+      - {x: -0.1446346, y: 0.5572165}
+      - {x: -0.038354874, y: -0.52536035}
+      - {x: 0.9511186, y: -0.30375338}
+      - {x: 1.5447955, y: 0.10513887}
 --- !u!1 &4982840474907815781
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,8 +408,19 @@ MonoBehaviour:
   - {fileID: 4982840473871723719}
   currCollider: {fileID: 0}
   playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   Player: {fileID: 0}
 --- !u!114 &4982840474907815789
 MonoBehaviour:

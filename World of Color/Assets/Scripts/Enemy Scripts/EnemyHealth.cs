@@ -12,6 +12,11 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject RoomManager;
 
+    private void Awake()
+    {
+        RoomManager.GetComponent<StartingAreaManager>().UnPurified();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

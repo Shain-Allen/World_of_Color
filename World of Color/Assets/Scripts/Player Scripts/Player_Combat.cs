@@ -57,9 +57,9 @@ public class Player_Combat : MonoBehaviour
 
             for (int i = 0; i < numOfEnemies; i++)
             {
-                if (enemiesToDamage[i].GetComponent<EnemyHealth>() != null)
+                if (enemiesToDamage[i].transform.parent.gameObject.GetComponent<EnemyHealth>() != null)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(0);
+                    enemiesToDamage[i].transform.parent.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
                 }
             }
 

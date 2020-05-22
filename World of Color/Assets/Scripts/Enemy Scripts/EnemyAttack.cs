@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     public GameObject[] colliders = new GameObject[5];
     public GameObject currCollider;
 
-    public LayerMask playerLayer;
+    public ContactFilter2D playerLayer;
     public GameObject Player;
 
     // Start is called before the first frame update
@@ -53,13 +53,9 @@ public class EnemyAttack : MonoBehaviour
         //choose attack animation and collider based on attack direction
         SwitchAttackAnimations(attackDirection);
 
-        //check if we actually hit the player and deal damage if we did
-        ContactFilter2D newContactFilter = new ContactFilter2D();
-            newContactFilter.layerMask = playerLayer;
-            newContactFilter.useLayerMask = true;
         Collider2D[] hitByAttack = new Collider2D[10];
 
-        int numColliders = Physics2D.OverlapCollider(currCollider.GetComponent<PolygonCollider2D>(), newContactFilter, hitByAttack);
+        int numColliders = Physics2D.OverlapCollider(currCollider.GetComponent<PolygonCollider2D>(), playerLayer, hitByAttack);
         for(int i = 0; i < numColliders; i++)
         {
             //only deal damage once

@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject RoomManager;
 
+    private bool purified = false;
+
     private void Awake()
     {
         RoomManager.GetComponent<StartingAreaManager>().UnPurified();
@@ -31,10 +33,11 @@ public class EnemyHealth : MonoBehaviour
             currHealth = myStats.maxHealth;
         }
 
-        if(currHealth <= 0)
+        if(currHealth <= 0 && purified == false)
         {
             //play purification animation?
             RoomManager.GetComponent<StartingAreaManager>().Purified();
+            purified = true;
         }
     }
 

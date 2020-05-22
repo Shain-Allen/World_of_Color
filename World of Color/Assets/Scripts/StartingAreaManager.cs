@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class StartingAreaManager : MonoBehaviour
 {
     public int unpurifiedMonsters;
     public int purifiedMonsters;
+    public Material roomMat;
     
     public void UnPurified()
     {

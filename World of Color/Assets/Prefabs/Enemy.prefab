@@ -389,8 +389,8 @@ MonoBehaviour:
   enemyState: 1
   distToChasePlayer: 5
   direction: {x: 0, y: 1}
-  minDistFromPlayer: {x: 1.25, y: 1.5}
-  buffer: 0.25
+  minDistFromPlayer: {x: 1.5, y: 1.75}
+  buffer: 0.3
   patrolTargets:
   - {x: 0, y: 0}
   - {x: -7, y: 0}
@@ -446,6 +446,7 @@ MonoBehaviour:
   myStats: {fileID: 11400000, guid: 92ad1b8ceee707548bb33f7529a69ff5, type: 2}
   currHealth: 0
   takeDamageSound: {fileID: 4456608483880346281}
+  RoomManager: {fileID: 0}
 --- !u!212 &4982840474907815787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -504,14 +505,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4982840474907815781}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

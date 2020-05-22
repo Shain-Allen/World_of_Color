@@ -17,8 +17,8 @@ public class EnemyMovement : MonoBehaviour
 
     //calculating movement goals/targets
     public Vector2 direction = Vector2.up;
-    public Vector2 minDistFromPlayer = new Vector2(1.25f, 1.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.25f;
+    public Vector2 minDistFromPlayer = new Vector2(1.5f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.3f;
 
     public Vector2[] patrolTargets;
     public int currPatrolTarget = 0;
@@ -42,6 +42,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        myRb.velocity = Vector2.zero;
+
         //behavior depends on distance from player
         if(Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
         {
@@ -212,4 +214,5 @@ public class EnemyMovement : MonoBehaviour
 
         myAnim.SetBool("is_walking", true);
     }
+
 }

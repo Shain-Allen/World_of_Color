@@ -17,6 +17,8 @@ public class Player_Controller : MonoBehaviour
 
     public void FixedUpdate()
     {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
         if (moveDir.x > 0.1)
         {
             //move right

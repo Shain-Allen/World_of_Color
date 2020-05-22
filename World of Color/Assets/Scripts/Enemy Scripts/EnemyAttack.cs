@@ -65,7 +65,7 @@ public class EnemyAttack : MonoBehaviour
             //only deal damage once
             if(hitByAttack[i].gameObject.tag == "Player")
             {
-                Player.GetComponent<Player_Health>().TakeDamage(myStats.attackDamage);
+                Player.GetComponent<Player_Health>().TakeDamage(myStats.attackDamage, attackDirection);
                 break;
             }
         }

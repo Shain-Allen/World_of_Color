@@ -11625,6 +11625,7 @@ GameObject:
   - component: {fileID: 2055061651}
   - component: {fileID: 2055061653}
   - component: {fileID: 2055061652}
+  - component: {fileID: 2055061658}
   - component: {fileID: 2055061647}
   - component: {fileID: 2055061654}
   - component: {fileID: 2055061655}
@@ -11832,6 +11833,14 @@ MonoBehaviour:
   EmptyHeart: {fileID: 21300000, guid: 5cb259ffa1430364ca842a313ceab796, type: 3}
   PlayerMat: {fileID: 2100000, guid: 88b4f80578be4b144b72d27a4c83a532, type: 2}
   lowHealthSound: {fileID: 2055061657}
+  myShield: {fileID: 2055061658}
+  myAttack: {fileID: 2055061654}
+  shieldDirections:
+  - {x: 0, y: -1}
+  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  myAnim: {fileID: 2055061651}
 --- !u!70 &2055061653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11894,7 +11903,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055061646}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -12101,6 +12110,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2055061658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055061646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215f1d44bc9fe7845ad84d88bd60cc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currDurability: 10
+  maxDurability: 10
+  currCooldownTime: 0
+  maxCooldownTime: 5
+  isBroken: 0
 --- !u!1 &2060482089
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,12 @@ public class Player_Health : MonoBehaviour
     //low health sound
     public AudioSource lowHealthSound;
 
+    //shield
+    public Player_Shield myShield;
+    public Player_Combat myAttack;
+    public Vector2[] shieldDirections = { Vector2.down, Vector2.up, Vector2.left, Vector2.right };
+    public Animator myAnim;
+
     private void Update()
     {
         HealthUIController();
@@ -67,12 +73,20 @@ public class Player_Health : MonoBehaviour
         PlayerMat.SetFloat("Distance", distance);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 attackDirection)
     {
-        health -= damage;
-        if (health <= 3)
+        if (attackDirection == -shieldDirections[(int)myAttack.attackdir] && !myShield.isBroken && !myAnim.GetBool("isMoving"))
         {
-            lowHealthSound.Play();
+            Debug.Log("blocked an attack");
+            myShield.BlockAttack();
+        }
+        else
+        {
+            health -= damage;
+            if (health <= 3)
+            {
+                lowHealthSound.Play();
+            }
         }
     }
 

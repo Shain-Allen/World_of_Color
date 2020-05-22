@@ -19,6 +19,7 @@ public class Player_Controller : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
+        //check where the player wants to move and store the last pressed direction
         if (moveDir.x > 0.1)
         {
             //move right
@@ -59,9 +60,12 @@ public class Player_Controller : MonoBehaviour
         {
             anim.SetBool("IsMoving", false);
         }
+
+        anim.SetInteger("AttackDir", (int)combatdir.attackdir);
     }
 
-
+    //this gets pluged into the player input component on the player
+    //InputAction.CallbackContext lets the input component feed in the values its getting from the controller
     public void Move(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<Vector2>();

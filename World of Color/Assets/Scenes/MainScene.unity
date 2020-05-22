@@ -963,9 +963,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb926e386fb16149ac79f43d4287d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingUnpurified: 0
   unpurifiedMonsters: 0
   purifiedMonsters: 0
-  roomMat: {fileID: 0}
+  roomMat: {fileID: 2100000, guid: 0c3008941ce70fd4c8afcc16a8d90ddc, type: 2}
 --- !u!4 &516815109
 Transform:
   m_ObjectHideFlags: 0

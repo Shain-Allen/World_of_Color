@@ -55,6 +55,7 @@ public class Player_Combat : MonoBehaviour
                 numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
 
+            //since the colliders are on child objects you need to get the parent which has the health script on it
             for (int i = 0; i < numOfEnemies; i++)
             {
                 if (enemiesToDamage[i].transform.parent.gameObject.GetComponent<EnemyHealth>() != null)
@@ -68,6 +69,7 @@ public class Player_Combat : MonoBehaviour
         currentCoolDown -= Time.deltaTime;
     }
 
+    //again InputAction.CallbackContext is to get the value from the input component
     public void Attack1(InputAction.CallbackContext context)
     {
         if (context.ReadValue<float>() >= 0.1f)

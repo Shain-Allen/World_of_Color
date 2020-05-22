@@ -31,6 +31,11 @@ public class Player_Health : MonoBehaviour
         PlayerMat.SetFloat("Distance", 0.5f);
     }
 
+    private void OnDisable()
+    {
+        PlayerMat.SetFloat("Distance", 0.5f);
+    }
+
     private void Update()
     {
         HealthUIController();

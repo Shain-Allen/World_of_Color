@@ -457,11 +457,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.0885186, y: 0.45316112}
-      - {x: -1.2657471, y: 0.071709424}
-      - {x: -1.0881944, y: -0.29313132}
-      - {x: -0.43366873, y: -0.3808317}
-      - {x: -0.44183528, y: 0.5411658}
+    - - {x: -0.91120875, y: 0.32358855}
+      - {x: -1.0952566, y: -0.064682975}
+      - {x: -0.9040648, y: -0.6341122}
+      - {x: -0.44048834, y: -0.86502445}
+      - {x: -0.44183528, y: 0.46614996}
 --- !u!1 &264634897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -14043,6 +14043,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815785, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
@@ -14499,7 +14504,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c3008941ce70fd4c8afcc16a8d90ddc, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20272,7 +20277,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88b4f80578be4b144b72d27a4c83a532, type: 2}
+  - {fileID: 2100000, guid: aba302e805f36be4898ae64974d54c1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20293,8 +20298,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6972499935228340753, guid: 760992a63be67c9468ac84c222392fa1,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd881cc6d7a6fee4b855ec76fc13bca0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20430,7 +20434,7 @@ MonoBehaviour:
   - {fileID: 789198355}
   fullHeart: {fileID: 21300000, guid: ee8896c6c4802a84eaff2029dbfaef63, type: 3}
   EmptyHeart: {fileID: 21300000, guid: 5cb259ffa1430364ca842a313ceab796, type: 3}
-  PlayerMat: {fileID: 2100000, guid: 88b4f80578be4b144b72d27a4c83a532, type: 2}
+  PlayerMat: {fileID: 2100000, guid: aba302e805f36be4898ae64974d54c1a, type: 2}
   lowHealthSound: {fileID: 2055061657}
   myShield: {fileID: 2055061658}
   myAttack: {fileID: 2055061654}
@@ -20453,8 +20457,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011681378, y: 0.15020394}
-  m_Size: {x: 0.701054, y: 1.5405564}
+  m_Offset: {x: 0.02532065, y: -0.18083262}
+  m_Size: {x: 0.9192817, y: 1.9571233}
   m_Direction: 0
 --- !u!114 &2055061654
 MonoBehaviour:
@@ -20912,11 +20916,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.9750239, y: 0.36546043}
-      - {x: 1.1176462, y: 0.025279641}
-      - {x: 0.9856667, y: -0.27249572}
-      - {x: 0.5104023, y: -0.40146717}
-      - {x: 0.5125537, y: 0.5669601}
+    - - {x: 0.7840745, y: 0.19497018}
+      - {x: 1.0221711, y: -0.17248914}
+      - {x: 0.8697327, y: -0.5861982}
+      - {x: 0.44902617, y: -0.89929914}
+      - {x: 0.40343997, y: 0.5737796}
 --- !u!1 &2111031672
 GameObject:
   m_ObjectHideFlags: 0

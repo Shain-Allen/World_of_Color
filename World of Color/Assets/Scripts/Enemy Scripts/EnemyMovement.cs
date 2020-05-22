@@ -75,7 +75,7 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         isDoneMoving = true;
-                        myAnim.SetBool("is_walking", false);
+                        SwitchIdleAnimations(direction);
                         myAttack.canAttack = true;
                         myAttack.attackDirection = direction;
                     }
@@ -182,7 +182,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 tempDirection = (Vector2)Player.transform.position - chaseTarget;
         tempDirection.Normalize();
 
-        if (Vector2.Distance((Vector2)transform.position + (tempDirection * minDistFromPlayer), Player.transform.position) <= dist)
+        if (Vector2.Distance((Vector2)transform.position + new Vector2(tempDirection.x * minDistFromPlayer.x, tempDirection.y * minDistFromPlayer.y), Player.transform.position) <= dist)
         {
             //if we have reached the target, face the player
             direction = tempDirection;
@@ -213,6 +213,28 @@ public class EnemyMovement : MonoBehaviour
         }
 
         myAnim.SetBool("is_walking", true);
+    }
+
+    void SwitchIdleAnimations(Vector2 direction)
+    {
+        if (direction == Vector2.up)
+        {
+            myAnim.SetFloat("idle_direction", 0.0f); //up
+        }
+        if (direction == Vector2.down)
+        {
+            myAnim.SetFloat("idle_direction", 1.0f); //down
+        }
+        if (direction == Vector2.left)
+        {
+            myAnim.SetFloat("idle_direction", 2.0f); //left
+        }
+        if (direction == Vector2.right)
+        {
+            myAnim.SetFloat("idle_direction", 3.0f); //right
+        }
+
+        myAnim.SetBool("is_walking", false);
     }
 
 }

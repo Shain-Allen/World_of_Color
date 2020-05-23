@@ -39,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
             //play purification animation?
             RoomManager.GetComponent<StartingAreaManager>().Purified();
             myMovement.enemyState = EnemyMovement.EnemyState.Purified;
+            myMovement.myAttack.canAttack = false;
             //keep this or break shader
             isPurified = true;
         }

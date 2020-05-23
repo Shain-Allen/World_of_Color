@@ -26,8 +26,6 @@ public class Player_Controller : MonoBehaviour
             transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
             combatdir.attackdir = Player_Combat.AttackDir.right;
             anim.SetBool("IsMoving", true);
-            anim.SetFloat("MoveX", 1);
-            anim.SetFloat("MoveY", 0);
         }
         else if (moveDir.x < -0.1)
         {
@@ -35,33 +33,27 @@ public class Player_Controller : MonoBehaviour
             transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
             combatdir.attackdir = Player_Combat.AttackDir.left;
             anim.SetBool("IsMoving", true);
-            anim.SetFloat("MoveX", -1);
-            anim.SetFloat("MoveY", 0);
         }
         else if (moveDir.y > 0.1)
         {
             //move up
             transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
-            combatdir.attackdir = Player_Combat.AttackDir.up;
+            combatdir.attackdir = Player_Combat.AttackDir.backward;
             anim.SetBool("IsMoving", true);
-            anim.SetFloat("MoveX", 0);
-            anim.SetFloat("MoveY", 1);
         }
         else if (moveDir.y < -0.1)
         {
             //move down
             transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
-            combatdir.attackdir = Player_Combat.AttackDir.down;
+            combatdir.attackdir = Player_Combat.AttackDir.forward;
             anim.SetBool("IsMoving", true);
-            anim.SetFloat("MoveX", 0);
-            anim.SetFloat("MoveY", -1);
         }
         else
         {
             anim.SetBool("IsMoving", false);
         }
 
-        anim.SetInteger("AttackDir", (int)combatdir.attackdir);
+        anim.SetFloat("MoveDir", (float)combatdir.attackdir);
     }
 
     //this gets pluged into the player input component on the player

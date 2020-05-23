@@ -16,18 +16,26 @@ public class EnemyMovement : MonoBehaviour
     public EnemyState enemyState = EnemyState.Patrol;
     public float distToChasePlayer = 5.0f;
 
-    //calculating movement goals/targets
+    //calculating movement goals/targets for chase
     public Vector2 direction = Vector2.up;
-    public Vector2 minDistFromPlayer = new Vector2(1.5f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.3f;
-
+    public Vector2 destination;
+    public bool isDoneMoving = true;
+   
+    //for patrol
     public Vector2[] patrolTargets;
     public int currPatrolTarget = 0;
     public bool reachedTarget = false;
 
+    //for chase
     public Vector2 chaseTarget;
-    public Vector2 destination;
-    public bool isDoneMoving = true;
+    public Vector2 minDistFromPlayer = new Vector2(1.5f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.3f;
+
+    //for purified/wander
+    public float[] roomBounds = new float[4];   //min x, max x, min y, max y
+    public Vector2 wanderTarget;
+    public float timeInIdle;
+    public bool isIdle = false;
 
     public Animator myAnim;
     public Rigidbody2D myRb;
@@ -109,7 +117,46 @@ public class EnemyMovement : MonoBehaviour
                     break;
 
                 case EnemyState.Purified:
-                    //wander
+                    //if we're idle, stay in idle until time runs out
+                    if (isIdle)
+                    {
+                        isDoneMoving = true;
+                        SwitchIdleAnimations(direction);
+                        timeInIdle -= Time.deltaTime;
+                        if (timeInIdle <= 0)
+                        {
+                            isIdle = false;
+
+                        }
+                    }
+                    //if we're not in idle, get a new target
+                    else
+                    {
+                        //check if we reached our current target
+                        if (Vector2.Distance(transform.position, wanderTarget) <= buffer)
+                        {
+                            reachedTarget = true;
+                        }
+
+                        //if we've reached, get a new target
+                        if (reachedTarget)
+                        {
+                            //30% chance of idle
+                            if (Random.Range(0, 3) > 1)
+                            {
+                                timeInIdle = Random.Range(1.0f, 5.0f);
+                                isIdle = true;
+                            }
+                            else
+                            {
+                                wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
+                                wanderTarget.x = Mathf.Round(wanderTarget.x);
+                                wanderTarget.y = Mathf.Round(wanderTarget.y);
+                                reachedTarget = false;
+                            }
+                        }
+                        ChoosePath(wanderTarget);
+                    }
                     break;
             }
         }

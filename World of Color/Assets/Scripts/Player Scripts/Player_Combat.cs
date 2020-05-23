@@ -8,8 +8,8 @@ public class Player_Combat : MonoBehaviour
 {
     public enum AttackDir
     {
-        down,
-        up,
+        forward,
+        backward,
         left,
         right
     }
@@ -21,7 +21,7 @@ public class Player_Combat : MonoBehaviour
     [SerializeField]
     float currentCoolDown;
     public bool isAttacking = false;
-    public AttackDir attackdir = AttackDir.down;
+    public AttackDir attackdir = AttackDir.forward;
     public PolygonCollider2D[] attackArea = new PolygonCollider2D[4];
 
     public Animator anim;
@@ -37,12 +37,12 @@ public class Player_Combat : MonoBehaviour
             Collider2D[] enemiesToDamage = new Collider2D[50];
             int numOfEnemies = 0;
             //Debug.Log("Attacked in direction " + attackdir);
-            if (attackdir == AttackDir.up)
+            if (attackdir == AttackDir.backward)
             {
                 //indexing into the array via enum
                 numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }
-            else if(attackdir == AttackDir.down)
+            else if(attackdir == AttackDir.forward)
             {
                 numOfEnemies = Physics2D.OverlapCollider(attackArea[(int)attackdir], enemyLayer, enemiesToDamage);
             }

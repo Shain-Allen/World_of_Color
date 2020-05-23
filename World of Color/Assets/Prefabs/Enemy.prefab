@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.97488606, y: 0.05319059}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0118167, y: 2.879402}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &4982840473999624992
 GameObject:
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04726696, y: -1.0047116}
+  m_Offset: {x: -1.5, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.890688, y: 1.0236416}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &4982840474395901281
 GameObject:
@@ -158,7 +158,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.9867026, y: -0.065010786}
+  m_Offset: {x: 0, y: -1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -169,7 +169,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0354508, y: 2.8321214}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &4982840474588088894
 GameObject:
@@ -215,7 +215,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07090092, y: -1.0047114}
+  m_Offset: {x: 0.5, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -226,7 +226,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.867054, y: 1.0472817}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &4982840474907815781
 GameObject:
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4982840474907815791}
   - component: {fileID: 4982840474907815789}
   - component: {fileID: 4982840474907815787}
-  - component: {fileID: 2337368507187332589}
+  - component: {fileID: 7352941399842670579}
   - component: {fileID: 4982840474907815785}
   - component: {fileID: 4982840474907815790}
   - component: {fileID: 4456608483880346281}
@@ -287,16 +287,24 @@ MonoBehaviour:
   enemyState: 1
   distToChasePlayer: 5
   direction: {x: 0, y: 1}
-  minDistFromPlayer: {x: 1.5, y: 1.75}
-  buffer: 0.3
+  destination: {x: 0, y: 0}
+  isDoneMoving: 1
   patrolTargets:
   - {x: 0, y: 0}
   - {x: -7, y: 0}
   currPatrolTarget: 0
   reachedTarget: 0
   chaseTarget: {x: 0, y: 0}
-  destination: {x: 0, y: 0}
-  isDoneMoving: 1
+  minDistFromPlayer: {x: 1.5, y: 1.75}
+  buffer: 0.3
+  roomBounds:
+  - -5
+  - 5
+  - -4
+  - 4
+  wanderTarget: {x: 0, y: 0}
+  timeInIdle: 0
+  isIdle: 0
   myAnim: {fileID: 4982840474907815790}
   myRb: {fileID: 4982840474907815785}
   Player: {fileID: 0}
@@ -408,8 +416,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2337368507187332589
-CircleCollider2D:
+--- !u!70 &7352941399842670579
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -422,8 +430,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.5}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 2, y: 1}
+  m_Direction: 1
 --- !u!50 &4982840474907815785
 Rigidbody2D:
   serializedVersion: 4

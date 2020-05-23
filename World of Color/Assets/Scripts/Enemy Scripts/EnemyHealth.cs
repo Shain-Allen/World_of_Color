@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public GenericStats myStats;
+    public EnemyMovement myMovement;
 
     public int currHealth;
 
@@ -12,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject RoomManager;
 
-    private bool purified = false;
+    public bool isPurified = false;
 
     private void Awake()
     {
@@ -33,18 +34,23 @@ public class EnemyHealth : MonoBehaviour
             currHealth = myStats.maxHealth;
         }
 
-        if(currHealth <= 0 && purified == false)
+        if(currHealth <= 0 && isPurified == false)
         {
             //play purification animation?
             RoomManager.GetComponent<StartingAreaManager>().Purified();
-            purified = true;
+            myMovement.enemyState = EnemyMovement.EnemyState.Purified;
+            //keep this or break shader
+            isPurified = true;
         }
     }
 
     //reduce health if we take damage
     public void TakeDamage(int damage)
     {
-        takeDamageSound.Play();
-        currHealth -= damage;
+        if (myMovement.enemyState != EnemyMovement.EnemyState.Purified)
+        {
+            takeDamageSound.Play();
+            currHealth -= damage;
+        }
     }
 }

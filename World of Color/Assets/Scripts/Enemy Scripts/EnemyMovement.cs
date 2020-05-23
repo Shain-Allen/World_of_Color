@@ -10,7 +10,8 @@ public class EnemyMovement : MonoBehaviour
     public enum EnemyState
     {
         Chase,
-        Patrol
+        Patrol,
+        Purified
     }
     public EnemyState enemyState = EnemyState.Patrol;
     public float distToChasePlayer = 5.0f;
@@ -44,14 +45,22 @@ public class EnemyMovement : MonoBehaviour
     {
         myRb.velocity = Vector2.zero;
 
-        //behavior depends on distance from player
-        if(Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
+        //once purified, there's no need for chase or patrol
+        if (enemyState == EnemyState.Purified)
         {
-            enemyState = EnemyState.Chase;
+            myAnim.SetBool("is_purified", true);
         }
         else
         {
-            enemyState = EnemyState.Patrol;
+            //behavior depends on distance from player
+            if (Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
+            {
+                enemyState = EnemyState.Chase;
+            }
+            else
+            {
+                enemyState = EnemyState.Patrol;
+            }
         }
 
         //don't calculate a new target/path if we're still moving on the previous path
@@ -97,6 +106,10 @@ public class EnemyMovement : MonoBehaviour
 
                     //move to that point
                     ChoosePath(patrolTargets[currPatrolTarget]);
+                    break;
+
+                case EnemyState.Purified:
+                    //wander
                     break;
             }
         }
@@ -212,10 +225,12 @@ public class EnemyMovement : MonoBehaviour
             myAnim.SetFloat("walk_direction", 3.0f); //right
         }
 
+        myAttack.currCollider.SetActive(true);
         myAnim.SetBool("is_walking", true);
     }
 
-    void SwitchIdleAnimations(Vector2 direction)
+
+    public void SwitchIdleAnimations(Vector2 direction)
     {
         if (direction == Vector2.up)
         {

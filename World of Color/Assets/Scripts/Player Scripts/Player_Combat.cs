@@ -58,9 +58,9 @@ public class Player_Combat : MonoBehaviour
             //since the colliders are on child objects you need to get the parent which has the health script on it
             for (int i = 0; i < numOfEnemies; i++)
             {
-                if (enemiesToDamage[i].transform.parent.gameObject.GetComponent<EnemyHealth>() != null)
+                if (enemiesToDamage[i].gameObject.GetComponent<EnemyHealth>() != null)
                 {
-                    enemiesToDamage[i].transform.parent.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+                    enemiesToDamage[i].gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
                 }
             }
 

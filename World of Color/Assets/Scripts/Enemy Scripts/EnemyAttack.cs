@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
     public Animator myAnim;
 
     //different colliders based on what animation is playing (up, down, left, right, idle/normal)
-    public GameObject[] colliders = new GameObject[5];
+    public GameObject[] attackColliders = new GameObject[4];
     public GameObject currCollider;
 
     public ContactFilter2D playerLayer;
@@ -26,9 +26,6 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currCollider = colliders[4];
-        currCollider.SetActive(true);
-
         Player = GameObject.Find("Player");
     }
 
@@ -55,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
 
         Collider2D[] hitByAttack = new Collider2D[10];
 
-        int numColliders = Physics2D.OverlapCollider(currCollider.GetComponent<PolygonCollider2D>(), playerLayer, hitByAttack);
+        int numColliders = Physics2D.OverlapCollider(currCollider.GetComponent<BoxCollider2D>(), playerLayer, hitByAttack);
         for(int i = 0; i < numColliders; i++)
         {
             //only deal damage once
@@ -75,44 +72,33 @@ public class EnemyAttack : MonoBehaviour
         //go to idle when not attacking
         myAnim.SetBool("is_attacking", false);
 
-        //disable the previous collider and switch to the new collider for idle
-        currCollider.SetActive(false);
-        currCollider = colliders[4];
-        currCollider.SetActive(true);
-
         StopAllCoroutines();
     }
 
     //choose attack animation based on direction
     void SwitchAttackAnimations(Vector2 direction)
     {
-        //disable the previous collider
-        currCollider.SetActive(false);
-
         if (direction == Vector2.up)
         {
             myAnim.SetFloat("attack_direction", 0.0f); //up
-            currCollider = colliders[0];          
+            currCollider = attackColliders[0];          
         }
         if (direction == Vector2.down)
         {
             myAnim.SetFloat("attack_direction", 1.0f); //down
-            currCollider = colliders[1];
+            currCollider = attackColliders[1];
         }
         if (direction == Vector2.left)
         {
             myAnim.SetFloat("attack_direction", 2.0f); //left
-            currCollider = colliders[2];
+            currCollider = attackColliders[2];
         }
         if (direction == Vector2.right)
         {
             myAnim.SetFloat("attack_direction", 3.0f); //right
-            currCollider = colliders[3];
+            currCollider = attackColliders[3];
         }
 
-        //enable the new collider
-        currCollider.SetActive(true);
         myAnim.SetBool("is_attacking", true);
     }
-
 }

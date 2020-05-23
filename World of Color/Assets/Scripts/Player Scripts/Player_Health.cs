@@ -28,12 +28,12 @@ public class Player_Health : MonoBehaviour
 
     private void Start()
     {
-        PlayerMat.SetFloat("Distance", 0.5f);
+        PlayerMat.SetFloat("Distance", 1f);
     }
 
     private void OnDisable()
     {
-        PlayerMat.SetFloat("Distance", 0.5f);
+        PlayerMat.SetFloat("Distance", 1f);
     }
 
     private void Update()
@@ -79,7 +79,7 @@ public class Player_Health : MonoBehaviour
 
     void PlayerMatController()
     {
-        distance = (0.5f / numOfHearts) * health + 0.06f;
+        distance = (1f / numOfHearts) * health;
         PlayerMat.SetFloat("Distance", distance);
     }
 

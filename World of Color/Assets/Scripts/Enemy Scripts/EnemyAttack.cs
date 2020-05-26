@@ -15,7 +15,10 @@ public class EnemyAttack : MonoBehaviour
     public float currCooldown = 0.0f;
 
     public Animator myAnim;
-    public AudioSource attackSound;
+
+    //sounds
+    public EnemySounds mySounds;
+    public AudioSource audioSource;
 
     //different colliders based on what animation is playing (up, down, left, right, idle/normal)
     public GameObject[] attackColliders = new GameObject[4];
@@ -50,7 +53,7 @@ public class EnemyAttack : MonoBehaviour
     {
         //choose attack animation and collider based on attack direction
         SwitchAttackAnimations(attackDirection);
-        attackSound.Play();
+        audioSource.PlayOneShot(mySounds.enemy_attack);
 
         Collider2D[] hitByAttack = new Collider2D[10];
 

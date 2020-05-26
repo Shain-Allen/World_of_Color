@@ -17,10 +17,9 @@ public class Player_Health : MonoBehaviour
     public Material PlayerMat;
     float distance;
 
-    //low health sound
-    public AudioSource lowHealthSound;
-    public AudioSource takeDamageSound;
-    public AudioSource gameOverSound;
+    //sounds
+    public PlayerSounds mySounds;
+    public AudioSource audioSource;
 
     //shield
     public Player_Shield myShield;
@@ -58,7 +57,7 @@ public class Player_Health : MonoBehaviour
 
         if(health <= 0)
         {
-            gameOverSound.Play();
+            audioSource.PlayOneShot(mySounds.player_gameOver);
         }
 
 
@@ -99,10 +98,10 @@ public class Player_Health : MonoBehaviour
         else
         {
             health -= damage;
-            takeDamageSound.Play();
+            audioSource.PlayOneShot(mySounds.player_takeDamage);
             if (health <= 3)
             {
-                lowHealthSound.Play();
+                audioSource.PlayOneShot(mySounds.player_lowHealth);
             }
         }
     }

@@ -26,13 +26,15 @@ public class Player_Combat : MonoBehaviour
 
     public Animator anim;
 
-    public AudioSource attackSound;
+    //sounds
+    public PlayerSounds mySounds;
+    public AudioSource audioSource;
 
     private void FixedUpdate()
     {
         if(isAttacking == true && currentCoolDown <= 0.1f)
         {
-            attackSound.Play();
+            audioSource.PlayOneShot(mySounds.player_attack);
 
             Collider2D[] enemiesToDamage = new Collider2D[50];
             int numOfEnemies = 0;

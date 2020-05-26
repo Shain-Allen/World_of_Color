@@ -12,6 +12,8 @@ public class Player_Shield : MonoBehaviour
 
     public bool isBroken = false;
 
+    public AudioSource shieldSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class Player_Shield : MonoBehaviour
 
     public void BlockAttack()
     {
+        shieldSound.Play();
         currDurability--;
     }
 }

@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public int currHealth;
 
     public AudioSource takeDamageSound;
+    public AudioSource purifiedSound;
 
     public GameObject RoomManager;
 
@@ -41,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
             myMovement.enemyState = EnemyMovement.EnemyState.Purified;
             myMovement.myAttack.canAttack = false;
             //keep this or break shader
+            purifiedSound.Play();
             isPurified = true;
         }
     }

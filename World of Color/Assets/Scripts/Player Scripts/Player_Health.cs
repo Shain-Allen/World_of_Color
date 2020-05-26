@@ -19,6 +19,8 @@ public class Player_Health : MonoBehaviour
 
     //low health sound
     public AudioSource lowHealthSound;
+    public AudioSource takeDamageSound;
+    public AudioSource gameOverSound;
 
     //shield
     public Player_Shield myShield;
@@ -52,6 +54,11 @@ public class Player_Health : MonoBehaviour
         if (numOfHearts > hearts.Length)
         {
             numOfHearts = hearts.Length;
+        }
+
+        if(health <= 0)
+        {
+            gameOverSound.Play();
         }
 
 
@@ -92,6 +99,7 @@ public class Player_Health : MonoBehaviour
         else
         {
             health -= damage;
+            takeDamageSound.Play();
             if (health <= 3)
             {
                 lowHealthSound.Play();

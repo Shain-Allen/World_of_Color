@@ -8,6 +8,27 @@ TextureImporter:
   - first:
       213: -4021561731597602363
     second: Enemy_Evil_Idle_Up_1
+  - first:
+      213: 5609048365189407545
+    second: Enemy_Evil_Idle_Up_0
+  - first:
+      213: 4062282146739299558
+    second: Enemy_Evil_Idle_Up_1
+  - first:
+      213: 7240892115468438911
+    second: Enemy_Evil_Idle_Up_2
+  - first:
+      213: 3670882654988913536
+    second: Enemy_Evil_Idle_Up_3
+  - first:
+      213: -4128787738376056317
+    second: Enemy_Evil_Idle_Up_4
+  - first:
+      213: 6415893154406255804
+    second: Enemy_Evil_Idle_Up_5
+  - first:
+      213: -1628686500001926282
+    second: Enemy_Evil_Idle_Up_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,9 +118,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11437e3268a88b910800000000000000
-      internalID: 1853383555395564561
+      spriteID: 933a91725c757dd40800000000000000
+      internalID: 5609048365189407545
       vertices: []
       indices: 
       edges: []
@@ -117,10 +138,10 @@ TextureImporter:
       name: Enemy_Evil_Idle_Up_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 48
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +149,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c1f1d989ea8038c0800000000000000
-      internalID: -4021561731597602363
+      spriteID: 6e4aecde610206830800000000000000
+      internalID: 4062282146739299558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Evil_Idle_Up_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7d4c6fd301dc7460800000000000000
+      internalID: 7240892115468438911
       vertices: []
       indices: 
       edges: []

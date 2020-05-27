@@ -92,7 +92,7 @@ public class Menu_Controller : MonoBehaviour
     //sets the value of the main mixer equal to the value of the volume slider
     public void Set_Volume(float volume)
     {
-        mainMixer.SetFloat("volume", volume);
+        mainMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
     }
 
     //toggles bewteen fullscreen and windows depending on the value of the bool given

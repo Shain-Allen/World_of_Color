@@ -8,6 +8,36 @@ TextureImporter:
   - first:
       213: -7223598006247078283
     second: Enemy_Evil_Walk_Down_1
+  - first:
+      213: 5932097388680124568
+    second: Enemy_Evil_Walk_Down_0
+  - first:
+      213: -7534836067218783124
+    second: Enemy_Evil_Walk_Down_1
+  - first:
+      213: -6052475621595711720
+    second: Enemy_Evil_Walk_Down_2
+  - first:
+      213: 658868263717276231
+    second: Enemy_Evil_Walk_Down_3
+  - first:
+      213: 9065903342733742759
+    second: Enemy_Evil_Walk_Down_4
+  - first:
+      213: -8683712909126034055
+    second: Enemy_Evil_Walk_Down_5
+  - first:
+      213: -7436476245646053969
+    second: Enemy_Evil_Walk_Down_2
+  - first:
+      213: 8092518090924158032
+    second: Enemy_Evil_Walk_Down_3
+  - first:
+      213: 5599789268358819336
+    second: Enemy_Evil_Walk_Down_4
+  - first:
+      213: -5518936280701819522
+    second: Enemy_Evil_Walk_Down_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475e737ac479e28a0800000000000000
-      internalID: -6327954070930201228
+      spriteID: 8981d49352b035250800000000000000
+      internalID: 5932097388680124568
       vertices: []
       indices: 
       edges: []
@@ -117,10 +147,10 @@ TextureImporter:
       name: Enemy_Evil_Walk_Down_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 48
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +158,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5764c65b2ef90cb90800000000000000
-      internalID: -7223598006247078283
+      spriteID: c648f94a482ee6790800000000000000
+      internalID: -7534836067218783124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Evil_Walk_Down_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fade2a531445cc890800000000000000
+      internalID: -7436476245646053969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Evil_Walk_Down_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ce4f3e3566e4070800000000000000
+      internalID: 8092518090924158032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Evil_Walk_Down_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e629daba276bd40800000000000000
+      internalID: 5599789268358819336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Evil_Walk_Down_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75a0ca71bcc863b0800000000000000
+      internalID: -5518936280701819522
       vertices: []
       indices: 
       edges: []

@@ -11165,6 +11165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 695077310}
+  audioMixer: {fileID: 24100000, guid: 3151d30d1d67b75468591ac3ece7eb6b, type: 2}
+  areaManager: {fileID: 516815108}
+  enemiesToAudioTracks: 0100000001000000010000000100000001000000
 --- !u!114 &1034252526 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 949356502926457355, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
@@ -15807,6 +15810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1070340483}
+  audioMixer: {fileID: 24100000, guid: 3151d30d1d67b75468591ac3ece7eb6b, type: 2}
+  areaManager: {fileID: 516815108}
+  enemiesToAudioTracks: 0100000001000000010000000100000001000000
 --- !u!1 &1564721758
 GameObject:
   m_ObjectHideFlags: 0

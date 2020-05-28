@@ -15795,7 +15795,7 @@ Transform:
   - {fileID: 1070340486}
   - {fileID: 264634898}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1496316390
 MonoBehaviour:
@@ -15811,8 +15811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1070340483}
   audioMixer: {fileID: 24100000, guid: 3151d30d1d67b75468591ac3ece7eb6b, type: 2}
-  areaManager: {fileID: 516815108}
-  enemiesToAudioTracks: 0100000001000000010000000100000001000000
+  areaManager: {fileID: 1824069667}
+  enemiesToAudioTracks: 0000000000000000000000000000000000000000
 --- !u!1 &1564721758
 GameObject:
   m_ObjectHideFlags: 0
@@ -21914,6 +21914,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1824069666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1824069668}
+  - component: {fileID: 1824069667}
+  m_Layer: 0
+  m_Name: Room_2 Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1824069667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824069666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb926e386fb16149ac79f43d4287d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingUnpurified: 0
+  unpurifiedMonsters: 0
+  purifiedMonsters: 0
+  roomMat: {fileID: 2100000, guid: bffa0c275793c8d43bd00446d09f46b4, type: 2}
+--- !u!4 &1824069668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824069666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5711083, y: -27.51, z: -2.8261719}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957933188
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Room_Trigger : MonoBehaviour
     public AudioMixer audioMixer;
     public StartingAreaManager areaManager;
     public int[] enemiesToAudioTracks = new int[5];
+    bool inRoom = false;
 
     //if the player enters a room, that room's vcam is turned on
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,11 +24,7 @@ public class Room_Trigger : MonoBehaviour
         {
             virtualCamera.SetActive(true);
             Console.WriteLine("Muted");
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", 0.1f, 0f));
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Harmony", 0.1f, 0f));
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Drums", 0.1f, 0f));
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass2", 0.1f, 0f));
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", 0.1f, 0f));
+            inRoom = true;
         }
     }
 
@@ -37,42 +34,68 @@ public class Room_Trigger : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             virtualCamera.SetActive(false);
+            inRoom = false;
         }
     }
     
     private void Update()
     {
         //unmute audio in this order
-        
+
         //1. Bass1
         //2. Harmony
         //3. Drums
         //4. Bass2
         //5. MelodicLine
-        
-    
-        if (areaManager.purifiedMonsters >= enemiesToAudioTracks[0])
+
+        if (inRoom == true)
         {
-            Console.WriteLine("unmuted");
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", 1f, 1f));
+            if (areaManager.purifiedMonsters >= enemiesToAudioTracks[0])
+            {
+                Console.WriteLine("unmuted");
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", 1f, 1f));
+            }
+            if (areaManager.purifiedMonsters >= enemiesToAudioTracks[1])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Harmony", 1f, 1f));
+            }
+            if (areaManager.purifiedMonsters >= enemiesToAudioTracks[2])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Drums", 1f, 1f));
+            }
+            if (areaManager.purifiedMonsters >= enemiesToAudioTracks[3])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass2", 1f, 1f));
+            }
+            if (areaManager.purifiedMonsters >= enemiesToAudioTracks[4])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", 1f, 1f));
+            }
         }
-        if (areaManager.purifiedMonsters >= enemiesToAudioTracks[1])
+        else
         {
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Harmony", 1f, 1f));
+            if (areaManager.purifiedMonsters <= enemiesToAudioTracks[0])
+            {
+                Console.WriteLine("unmuted");
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", 0.001f, 0f));
+            }
+            if (areaManager.purifiedMonsters <= enemiesToAudioTracks[1])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Harmony", 0.001f, 0f));
+            }
+            if (areaManager.purifiedMonsters <= enemiesToAudioTracks[2])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Drums", 0.001f, 0f));
+            }
+            if (areaManager.purifiedMonsters <= enemiesToAudioTracks[3])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass2", 0.001f, 0f));
+            }
+            if (areaManager.purifiedMonsters <= enemiesToAudioTracks[4])
+            {
+                StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", 0.001f, 0f));
+            }
         }
-        if (areaManager.purifiedMonsters >= enemiesToAudioTracks[2])
-        {
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Drums", 1f, 1f));
-        }
-        if (areaManager.purifiedMonsters >= enemiesToAudioTracks[3])
-        {
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass2", 1f, 1f));
-        }
-        if (areaManager.purifiedMonsters >= enemiesToAudioTracks[4])
-        {
-            StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", 1f, 1f));
-        }
-    
     }
         
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)

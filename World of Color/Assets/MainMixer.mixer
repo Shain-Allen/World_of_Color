@@ -194,8 +194,18 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 7c9a16e3e3167f846a3c68436c75fcfa
+    name: Bass1
+  - guid: a12598feb872a3c4c8a213ae39be25f6
+    name: Bass2
+  - guid: f928e0ec8d783b64598a05f53ebfa1b2
+    name: Drums
+  - guid: 621e4dc13ceaa2d409f4a20c1f3dca64
+    name: Harmony
   - guid: 78ce0b18b7391f741b905959ca90994b
     name: volume
+  - guid: 8f597f0e228545a458f5f6a7764c04e1
+    name: MelodicLine
   m_AudioMixerGroupViews:
   - guids:
     - d953663d20d9cce47b9e2f199172a700
@@ -253,8 +263,14 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 7766593a93ea62a4882d74552fef77d6
   m_FloatValues:
+    621e4dc13ceaa2d409f4a20c1f3dca64: 0
+    7c9a16e3e3167f846a3c68436c75fcfa: 0
+    1b3064f79e9435844922438725b302c8: -80
     78ce0b18b7391f741b905959ca90994b: -0.002441872
     66e482ba6070aca44afe6fb3e65fbfa2: 0
+    f928e0ec8d783b64598a05f53ebfa1b2: 0
+    8f597f0e228545a458f5f6a7764c04e1: 0
+    a12598feb872a3c4c8a213ae39be25f6: 0
     86a5ed7f118c1964ab56e264043922c9: -80
   m_TransitionOverrides: {}
 --- !u!244 &603398217265251636

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.95
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
@@ -7651,7 +7651,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: fccce45521048f54ca77753e323d378a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18466,6 +18466,11 @@ PrefabInstance:
       propertyPath: patrolTargets.Array.data[1].y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57878b9e288d55f488bf4383f0e87026, type: 2}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
@@ -18648,7 +18653,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fccce45521048f54ca77753e323d378a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24732,6 +24737,11 @@ PrefabInstance:
       propertyPath: patrolTargets.Array.data[1].y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57878b9e288d55f488bf4383f0e87026, type: 2}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
@@ -24777,7 +24787,7 @@ MonoBehaviour:
   startingUnpurified: 0
   unpurifiedMonsters: 0
   purifiedMonsters: 0
-  roomMat: {fileID: 2100000, guid: bffa0c275793c8d43bd00446d09f46b4, type: 2}
+  roomMat: {fileID: 2100000, guid: fccce45521048f54ca77753e323d378a, type: 2}
   pointlight: {fileID: 88825441}
   room: {fileID: 1496316390}
 --- !u!4 &1824069668

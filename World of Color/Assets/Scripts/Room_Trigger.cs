@@ -16,7 +16,7 @@ public class Room_Trigger : MonoBehaviour
     public AudioMixer audioMixer;
     public StartingAreaManager areaManager;
     public int[] enemiesToAudioTracks = new int[5];
-    bool inRoom = false;
+    public bool inRoom = false;
     float fadeInTime = 1f;
     float fadeOutTime = 0.001f;
 
@@ -81,7 +81,6 @@ public class Room_Trigger : MonoBehaviour
         {
             if (areaManager.purifiedMonsters <= enemiesToAudioTracks[0])
             {
-                Console.WriteLine("unmuted");
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", fadeOutTime, 0f));
             }
             if (areaManager.purifiedMonsters <= enemiesToAudioTracks[1])

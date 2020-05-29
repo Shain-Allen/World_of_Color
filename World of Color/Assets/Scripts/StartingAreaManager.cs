@@ -1,7 +1,9 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class StartingAreaManager : MonoBehaviour
@@ -12,6 +14,10 @@ public class StartingAreaManager : MonoBehaviour
     public Material roomMat;
     float saturation;
 
+    //lights
+    public Light2D pointlight;
+    public Room_Trigger room;
+
     private void OnDisable()
     {
         roomMat.SetFloat("Saturation", 1f);
@@ -21,6 +27,11 @@ public class StartingAreaManager : MonoBehaviour
     {
         saturation = (1f / startingUnpurified) * purifiedMonsters;
         roomMat.SetFloat("Saturation", saturation);
+
+        if (room.inRoom)
+        {
+            pointlight.pointLightOuterRadius = (unpurifiedMonsters / startingUnpurified) * (34.75f - 60f) + 60f;
+        }
     }
 
     public void UnPurified()

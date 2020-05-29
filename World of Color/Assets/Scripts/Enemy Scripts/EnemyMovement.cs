@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -32,7 +33,6 @@ public class EnemyMovement : MonoBehaviour
     public float buffer = 0.3f;
 
     //for purified/wander
-    public float[] roomBounds = new float[4];   //min x, max x, min y, max y
     public Vector2 wanderTarget;
     public float timeInIdle;
     public bool isIdle = false;
@@ -41,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
     public Rigidbody2D myRb;
 
     public GameObject Player;
+    public int roomNumber;
+    public float[] roomBounds = new float[4];   //min x, max x, min y, max y
 
     // Start is called before the first frame update
     void Start()
@@ -60,8 +62,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            //behavior depends on distance from player
-            if (Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
+            //behavior depends on distance from player and player's overall position
+            if (roomNumber == Player.GetComponent<Player_Controller>().currRoom && canChase() && Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
             {
                 enemyState = EnemyState.Chase;
             }
@@ -162,6 +164,16 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    bool canChase()
+    {
+        //enemy can't chase at edges of the room
+        if(Player.transform.position.x > roomBounds[0] && Player.transform.position.x < roomBounds[1] && Player.transform.position.y > roomBounds[2] && Player.transform.position.y < roomBounds[3])
+        {
+            return true;
+        }
+        return false;
+    }
+
     //find the closest adjacent tile to the player (up/down/left/right) to use as the target (don't travel directly on top of the player
     Vector2 FindClosestAdjacent(Vector2 basePos)
     {
@@ -196,7 +208,8 @@ public class EnemyMovement : MonoBehaviour
         //choose whether to turn, double back, or continue
         for(int i = 0; i < possibleMovements.Length; i++)
         {
-            if(distToTarget > Vector2.Distance((Vector2)transform.position + possibleMovements[i], target))
+            //make sure the direction isn't going into a wall
+            if(IsValidDirection(possibleMovements[i]) && distToTarget > Vector2.Distance((Vector2)transform.position + possibleMovements[i], target))
             {
                 bestPath = i;
                 distToTarget = Vector2.Distance((Vector2)transform.position + possibleMovements[i], target);
@@ -250,6 +263,20 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return false;
+    }
+
+    //make sure we aren't bumping into a wall
+    private bool IsValidDirection(Vector2 direction)
+    {
+        //draw a line to the next tile over (+ a little bit) and check if the wall is in the way
+        Vector2 pos = transform.position;
+        direction *= 1.55f;
+
+        //only check the wall layer
+        int layerMask = 1 << 10;
+        RaycastHit2D hit = Physics2D.Linecast(pos + direction, pos, layerMask);
+        //return true if it doesn't detect the wall
+        return hit.collider == null;
     }
 
     //switch animation based on what direction we're moving in/facing

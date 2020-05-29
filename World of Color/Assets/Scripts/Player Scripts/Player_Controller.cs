@@ -12,6 +12,8 @@ public class Player_Controller : MonoBehaviour
     [HideInInspector]
     public Vector2 moveDir;
 
+    public int currRoom = 1;
+
     //attack combat direction passthrough
     public Player_Combat combatdir;
 

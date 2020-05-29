@@ -11,6 +11,7 @@ using System;
 public class Room_Trigger : MonoBehaviour
 {
     public GameObject virtualCamera;
+    public int roomNumber;
 
     public AudioMixer audioMixer;
     public StartingAreaManager areaManager;
@@ -27,6 +28,8 @@ public class Room_Trigger : MonoBehaviour
             virtualCamera.SetActive(true);
             Console.WriteLine("Muted");
             inRoom = true;
+
+            collision.gameObject.GetComponent<Player_Controller>().currRoom = roomNumber;
         }
     }
 

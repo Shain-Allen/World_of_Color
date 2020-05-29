@@ -270,11 +270,13 @@ public class EnemyMovement : MonoBehaviour
     {
         //draw a line to the next tile over (+ a little bit) and check if the wall is in the way
         Vector2 pos = transform.position;
-        direction *= 1.55f;
+        direction *= 2.5f;
 
-        //only check the wall layer
-        int layerMask = 1 << 10;
-        RaycastHit2D hit = Physics2D.Linecast(pos + direction, pos, layerMask);
+        //check layers to make sure we're not trying to walk into the player or another enemy
+        int wallLayer = 1 << 10;
+        //int enemyLayer = 1 << 9;
+        int combinedLayerMask = wallLayer /*| enemyLayer*/;
+        RaycastHit2D hit = Physics2D.Linecast(pos + direction, pos, combinedLayerMask);
         //return true if it doesn't detect the wall
         return hit.collider == null;
     }

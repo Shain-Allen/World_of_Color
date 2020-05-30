@@ -59,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
         if (enemyState == EnemyState.Purified)
         {
             myAnim.SetBool("is_purified", true);
+            reachedTarget = true;
         }
         else
         {

@@ -30,7 +30,7 @@ public class StartingAreaManager : MonoBehaviour
 
         if (room.inRoom)
         {
-            pointlight.pointLightOuterRadius = (unpurifiedMonsters / startingUnpurified) * (34.75f - 60f) + 60f;
+            pointlight.pointLightOuterRadius = (unpurifiedMonsters / startingUnpurified) * (34.75f - 70f) + 70f;
         }
     }
 

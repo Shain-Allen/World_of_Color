@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: 2933852566365569595
     second: Enemy_Evil_Walk_Up_5
+  - first:
+      213: -4784681190829750908
+    second: Enemy_Evil_Walk_Up_0
+  - first:
+      213: -4752434184875881026
+    second: Enemy_Evil_Walk_Up_1
+  - first:
+      213: -620908577930829435
+    second: Enemy_Evil_Walk_Up_2
+  - first:
+      213: 4661079371400802941
+    second: Enemy_Evil_Walk_Up_3
+  - first:
+      213: -6976324103231352730
+    second: Enemy_Evil_Walk_Up_4
+  - first:
+      213: -4846946294067319572
+    second: Enemy_Evil_Walk_Up_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,9 +151,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 32
-        height: 48
+        y: 480
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94a4330f61af44420800000000000000
-      internalID: 2613488660207848009
+      spriteID: 4858919aec5699db0800000000000000
+      internalID: -4784681190829750908
       vertices: []
       indices: 
       edges: []
@@ -153,10 +171,10 @@ TextureImporter:
       name: Enemy_Evil_Walk_Up_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
-        width: 32
-        height: 48
+        x: 320
+        y: 480
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 659874e9f4b0d0080800000000000000
-      internalID: -9219700425571727018
+      spriteID: ebdcc00d946fb0eb0800000000000000
+      internalID: -4752434184875881026
       vertices: []
       indices: 
       edges: []
@@ -174,10 +192,10 @@ TextureImporter:
       name: Enemy_Evil_Walk_Up_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
-        width: 32
-        height: 48
+        x: 640
+        y: 480
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e751b47f364b89320800000000000000
-      internalID: 2564998329231152510
+      spriteID: 581a07620f61267f0800000000000000
+      internalID: -620908577930829435
       vertices: []
       indices: 
       edges: []
@@ -197,8 +215,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 828ff44dd65193800800000000000000
-      internalID: 592528387433560104
+      spriteID: d72fe3a2efa7fa040800000000000000
+      internalID: 4661079371400802941
       vertices: []
       indices: 
       edges: []
@@ -216,10 +234,10 @@ TextureImporter:
       name: Enemy_Evil_Walk_Up_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 320
         y: 0
-        width: 32
-        height: 48
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bde820faf250ad80800000000000000
-      internalID: -8241496080363491919
+      spriteID: 66056e4b03e1f2f90800000000000000
+      internalID: -6976324103231352730
       vertices: []
       indices: 
       edges: []
@@ -237,10 +255,10 @@ TextureImporter:
       name: Enemy_Evil_Walk_Up_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 640
         y: 0
-        width: 32
-        height: 48
+        width: 320
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3286996d5327b820800000000000000
-      internalID: 2933852566365569595
+      spriteID: ceca8b896003cbcb0800000000000000
+      internalID: -4846946294067319572
       vertices: []
       indices: 
       edges: []

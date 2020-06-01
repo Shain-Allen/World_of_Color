@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Player_Shield : MonoBehaviour
@@ -15,6 +16,9 @@ public class Player_Shield : MonoBehaviour
     //sounds
     public PlayerSounds mySounds;
     public AudioSource audioSource;
+
+    //UI
+    public Image shieldBar;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,8 @@ public class Player_Shield : MonoBehaviour
                 currDurability = maxDurability;
             }
         }
+
+        shieldBar.fillAmount = (1f / maxDurability) * currDurability;
     }
 
     public void BlockAttack()

@@ -44,9 +44,13 @@ public class EnemyMovement : MonoBehaviour
     public int roomNumber;
     public float[] roomBounds = new float[4];   //min x, max x, min y, max y
 
+    public Collider2D HorizontalCollider;
+    public Collider2D VerticalCollider;
+
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.queriesStartInColliders = false;
         Player = GameObject.Find("Player");
     }
 
@@ -58,8 +62,11 @@ public class EnemyMovement : MonoBehaviour
         //once purified, there's no need for chase or patrol
         if (enemyState == EnemyState.Purified)
         {
-            myAnim.SetBool("is_purified", true);
-            reachedTarget = true;
+            if (myAnim.GetBool("is_purified") == false)
+            {
+                myAnim.SetBool("is_purified", true);
+                reachedTarget = true;
+            }
         }
         else
         {
@@ -271,13 +278,21 @@ public class EnemyMovement : MonoBehaviour
     {
         //draw a line to the next tile over (+ a little bit) and check if the wall is in the way
         Vector2 pos = transform.position;
-        direction *= 2.5f;
+        direction *= 1.55f;
 
         //check layers to make sure we're not trying to walk into the player or another enemy
         int wallLayer = 1 << 10;
-        //int enemyLayer = 1 << 9;
-        int combinedLayerMask = wallLayer /*| enemyLayer*/;
+        int playerLayer = 1 << 8;
+        int enemyLayer = 1 << 9;
+        int combinedLayerMask = wallLayer | playerLayer | enemyLayer;
+
+        //TODO: find a way to simplify this
+        HorizontalCollider.enabled = false;
+        VerticalCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(pos + direction, pos, combinedLayerMask);
+        HorizontalCollider.enabled = true;
+        VerticalCollider.enabled = true;
+
         //return true if it doesn't detect the wall
         return hit.collider == null;
     }
@@ -287,18 +302,26 @@ public class EnemyMovement : MonoBehaviour
     {
         if(direction == Vector2.up)
         {
+            HorizontalCollider.enabled = false;
+            VerticalCollider.enabled = true;
             myAnim.SetFloat("walk_direction", 0.0f); //up
         }
         if (direction == Vector2.down)
         {
+            HorizontalCollider.enabled = false;
+            VerticalCollider.enabled = true;
             myAnim.SetFloat("walk_direction", 1.0f); //down
         }
         if (direction == Vector2.left)
         {
+            HorizontalCollider.enabled = true;
+            VerticalCollider.enabled = false;
             myAnim.SetFloat("walk_direction", 2.0f); //left
         }
         if (direction == Vector2.right)
         {
+            HorizontalCollider.enabled = true;
+            VerticalCollider.enabled = false;
             myAnim.SetFloat("walk_direction", 3.0f); //right
         }
 
@@ -311,18 +334,26 @@ public class EnemyMovement : MonoBehaviour
     {
         if (direction == Vector2.up)
         {
+            HorizontalCollider.enabled = false;
+            VerticalCollider.enabled = true;
             myAnim.SetFloat("idle_direction", 0.0f); //up
         }
         if (direction == Vector2.down)
         {
+            HorizontalCollider.enabled = false;
+            VerticalCollider.enabled = true;
             myAnim.SetFloat("idle_direction", 1.0f); //down
         }
         if (direction == Vector2.left)
         {
+            HorizontalCollider.enabled = true;
+            VerticalCollider.enabled = false;
             myAnim.SetFloat("idle_direction", 2.0f); //left
         }
         if (direction == Vector2.right)
         {
+            HorizontalCollider.enabled = true;
+            VerticalCollider.enabled = false;
             myAnim.SetFloat("idle_direction", 3.0f); //right
         }
 

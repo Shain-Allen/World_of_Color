@@ -287,18 +287,17 @@ MonoBehaviour:
   myStats: {fileID: 11400000, guid: 92ad1b8ceee707548bb33f7529a69ff5, type: 2}
   myAttack: {fileID: 4982840474907815791}
   enemyState: 1
-  distToChasePlayer: 5
+  distToChasePlayer: 7.5
   direction: {x: 0, y: 1}
   destination: {x: 0, y: 0}
-  isDoneMoving: 1
   patrolTargets:
-  - {x: 0, y: 0}
-  - {x: -7, y: 0}
+  - {x: 8, y: 4.5}
+  - {x: 8, y: 0}
   currPatrolTarget: 0
-  reachedTarget: 0
+  reachedTarget: 1
   chaseTarget: {x: 0, y: 0}
-  minDistFromPlayer: {x: 1.5, y: 1.75}
-  buffer: 0.3
+  minDistFromPlayer: {x: 2, y: 2.5}
+  buffer: 0.5
   wanderTarget: {x: 0, y: 0}
   timeInIdle: 0
   isIdle: 0
@@ -452,8 +451,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Size: {x: 2.5, y: 1}
+  m_Offset: {x: 0, y: -0.4}
+  m_Size: {x: 1.5, y: 0.5}
   m_Direction: 1
 --- !u!70 &2586598892636667386
 CapsuleCollider2D:
@@ -468,8 +467,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_Size: {x: 1, y: 2.5}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1.5}
   m_Direction: 0
 --- !u!50 &4982840474907815785
 Rigidbody2D:

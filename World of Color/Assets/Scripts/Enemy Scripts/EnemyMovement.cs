@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -15,22 +14,21 @@ public class EnemyMovement : MonoBehaviour
         Purified
     }
     public EnemyState enemyState = EnemyState.Patrol;
-    public float distToChasePlayer = 5.0f;
+    public float distToChasePlayer = 7.5f;
 
     //calculating movement goals/targets for chase
     public Vector2 direction = Vector2.up;
     public Vector2 destination;
-    public bool isDoneMoving = true;
    
     //for patrol
     public Vector2[] patrolTargets;
     public int currPatrolTarget = 0;
-    public bool reachedTarget = false;
+    public bool reachedTarget = true;
 
     //for chase
     public Vector2 chaseTarget;
-    public Vector2 minDistFromPlayer = new Vector2(1.5f, 1.75f);  //stopping distance from player (diff x and y since player isn't a perfect square)
-    public float buffer = 0.3f;
+    public Vector2 minDistFromPlayer = new Vector2(2.0f, 2.5f);  //stopping distance from player (diff x and y since player isn't a perfect square)
+    public float buffer = 0.5f;
 
     //for purified/wander
     public Vector2 wanderTarget;
@@ -40,17 +38,18 @@ public class EnemyMovement : MonoBehaviour
     public Animator myAnim;
     public Rigidbody2D myRb;
 
+    //only chase player when its in the same room
     public GameObject Player;
     public int roomNumber;
     public float[] roomBounds = new float[4];   //min x, max x, min y, max y
 
+    //colliders based on direction
     public Collider2D HorizontalCollider;
     public Collider2D VerticalCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.queriesStartInColliders = false;
         Player = GameObject.Find("Player");
     }
 
@@ -70,8 +69,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            //behavior depends on distance from player and player's overall position
-            if (roomNumber == Player.GetComponent<Player_Controller>().currRoom && canChase() && Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
+            //chase/patrol depends on distance from player and player's overall position
+            if (PlayerIsInRoom() && Vector2.Distance(Player.transform.position, transform.position) <= distToChasePlayer)
             {
                 enemyState = EnemyState.Chase;
             }
@@ -82,9 +81,9 @@ public class EnemyMovement : MonoBehaviour
         }
 
         //don't calculate a new target/path if we're still moving on the previous path
-        if (isDoneMoving)
+        if (reachedTarget)
         {
-            isDoneMoving = false;
+            reachedTarget = false;
 
             //different movement patterns based on state
             switch (enemyState)
@@ -101,7 +100,7 @@ public class EnemyMovement : MonoBehaviour
                     //stop moving and attack when we reach the target
                     else
                     {
-                        isDoneMoving = true;
+                        reachedTarget = true;
                         SwitchIdleAnimations(direction);
                         myAttack.canAttack = true;
                         myAttack.attackDirection = direction;
@@ -109,20 +108,13 @@ public class EnemyMovement : MonoBehaviour
                     break;
                     
                 case EnemyState.Patrol:
-                    //check if we reached our current target
+                    //check if we reached our current target and get a new target if we have
                     if (Vector2.Distance(transform.position, patrolTargets[currPatrolTarget]) <= buffer)
                     {
-                        reachedTarget = true;
-                    }
-
-                    //get the next patrol point if we reached the current target
-                    if (reachedTarget)
-                    {
                         currPatrolTarget = (currPatrolTarget + 1) % patrolTargets.Length;
-                        reachedTarget = false;
                     }
 
-                    //move to that point
+                    //move to the next target
                     ChoosePath(patrolTargets[currPatrolTarget]);
                     break;
 
@@ -130,7 +122,7 @@ public class EnemyMovement : MonoBehaviour
                     //if we're idle, stay in idle until time runs out
                     if (isIdle)
                     {
-                        isDoneMoving = true;
+                        reachedTarget = true;
                         SwitchIdleAnimations(direction);
                         timeInIdle -= Time.deltaTime;
                         if (timeInIdle <= 0)
@@ -142,27 +134,19 @@ public class EnemyMovement : MonoBehaviour
                     //if we're not in idle, get a new target
                     else
                     {
-                        //check if we reached our current target
+                        //check if we reached our current target and get a new target if we have
                         if (Vector2.Distance(transform.position, wanderTarget) <= buffer)
-                        {
-                            reachedTarget = true;
-                        }
-
-                        //if we've reached, get a new target
-                        if (reachedTarget)
                         {
                             //30% chance of idle
                             if (Random.Range(0, 3) > 1)
                             {
                                 timeInIdle = Random.Range(1.0f, 5.0f);
-                                isIdle = true;
                             }
                             else
                             {
                                 wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
                                 wanderTarget.x = Mathf.Round(wanderTarget.x);
                                 wanderTarget.y = Mathf.Round(wanderTarget.y);
-                                reachedTarget = false;
                             }
                         }
                         ChoosePath(wanderTarget);
@@ -170,16 +154,6 @@ public class EnemyMovement : MonoBehaviour
                     break;
             }
         }
-    }
-
-    bool canChase()
-    {
-        //enemy can't chase at edges of the room
-        if(Player.transform.position.x > roomBounds[0] && Player.transform.position.x < roomBounds[1] && Player.transform.position.y > roomBounds[2] && Player.transform.position.y < roomBounds[3])
-        {
-            return true;
-        }
-        return false;
     }
 
     //find the closest adjacent tile to the player (up/down/left/right) to use as the target (don't travel directly on top of the player
@@ -211,9 +185,9 @@ public class EnemyMovement : MonoBehaviour
 
         //for keeping track of the optimal path
         float distToTarget = float.MaxValue;
-        int bestPath = 0;   //default is to continue in the current direction
+        int bestPath = 0;
 
-        //choose whether to turn, double back, or continue
+        //choose best direction to move in
         for(int i = 0; i < possibleMovements.Length; i++)
         {
             //make sure the direction isn't going into a wall
@@ -237,7 +211,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         //keep moving until we reach our current destination (make sure we're not going too close to the player)
-        while (Vector2.Distance(transform.position, destination) > 0.001f)
+        while (Vector2.Distance(transform.position, destination) >= 0.001f)
         {
             //if we're chasing make sure were not too close to the player
             if(enemyState == EnemyState.Chase && IsCloseToPlayer(buffer))
@@ -251,25 +225,37 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        isDoneMoving = true;
+        reachedTarget = true;
         StopAllCoroutines();
     }
-
 
     //check if we're within <dist> of player
     bool IsCloseToPlayer(float dist)
     {
         //direction is facing player
-        Vector2 tempDirection = (Vector2)Player.transform.position - chaseTarget;
-        tempDirection.Normalize();
+        Vector2[] tempDirections = { Vector2.up * minDistFromPlayer.y, Vector2.down * minDistFromPlayer.y, Vector2.left * minDistFromPlayer.x, Vector2.right * minDistFromPlayer.x };
 
-        if (Vector2.Distance((Vector2)transform.position + new Vector2(tempDirection.x * minDistFromPlayer.x, tempDirection.y * minDistFromPlayer.y), Player.transform.position) <= dist)
+        for (int i = 0; i < tempDirections.Length; i++)
         {
-            //if we have reached the target, face the player
-            direction = tempDirection;
-            return true;
+            if (Vector2.Distance((Vector2)transform.position + tempDirections[i], Player.transform.position) <= dist)
+            {
+                //if we have reached the target, face the player
+                direction = tempDirections[i].normalized;
+                return true;
+            }
         }
 
+        return false;
+    }
+
+
+    bool PlayerIsInRoom()
+    {
+        //enemy can't chase at edges of the room
+        if (roomNumber == Player.GetComponent<Player_Controller>().currRoom && Player.transform.position.x > roomBounds[0] && Player.transform.position.x < roomBounds[1] && Player.transform.position.y > roomBounds[2] && Player.transform.position.y < roomBounds[3])
+        {
+            return true;
+        }
         return false;
     }
 

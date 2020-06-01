@@ -34,6 +34,7 @@ public class Player_Combat : MonoBehaviour
     {
         if(isAttacking == true && currentCoolDown <= 0.1f)
         {
+            anim.SetBool("IsAttacking", true);
             audioSource.PlayOneShot(mySounds.player_attack);
 
             Collider2D[] enemiesToDamage = new Collider2D[50];
@@ -81,6 +82,7 @@ public class Player_Combat : MonoBehaviour
         else
         {
             isAttacking = false;
+            anim.SetBool("IsAttacking", false);
         }
     }
 }

@@ -481,7 +481,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 34.75
+  m_PointLightOuterRadius: 75
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -18425,7 +18425,7 @@ MonoBehaviour:
   roomNumber: 2
   audioMixer: {fileID: 24100000, guid: 3151d30d1d67b75468591ac3ece7eb6b, type: 2}
   areaManager: {fileID: 1824069667}
-  enemiesToAudioTracks: 0000000000000000000000000000000000000000
+  enemiesToAudioTracks: 0100000002000000020000000200000002000000
   inRoom: 0
 --- !u!1 &1511850596
 GameObject:

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27014,7 +27014,9 @@ MonoBehaviour:
   player_takeDamage: {fileID: 8300000, guid: b307f3132222f074cbb8360fe48b3060, type: 3}
   player_lowHealth: {fileID: 8300000, guid: ac2cc319b5f46564ca1c54c0d9738b4c, type: 3}
   player_shield: {fileID: 8300000, guid: 2b39845b970034445b04f1e873c60530, type: 3}
-  player_gameOver: {fileID: 8300000, guid: e7ed2b360c1b0d943929deb1260ed3ee, type: 3}
+  player_shieldBreak: {fileID: 8300000, guid: a405b564659857a4c9592559a3bdc485, type: 3}
+  player_shieldRecharge: {fileID: 8300000, guid: 66b7125ef9f4aad47ba100c62bf5f0b5,
+    type: 3}
 --- !u!114 &2055061658
 MonoBehaviour:
   m_ObjectHideFlags: 0

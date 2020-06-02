@@ -10,7 +10,7 @@ Material:
   m_Name: RoomMat_01_Lit
   m_Shader: {fileID: -6465566751694194690, guid: eab19c68feb049040bf6a50bb5379709,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

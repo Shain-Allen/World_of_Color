@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5, y: -0.5}
+  m_Offset: {x: -2, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -158,7 +158,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.5}
+  m_Offset: {x: 0, y: -2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -215,7 +215,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5, y: -0.5}
+  m_Offset: {x: 2, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -291,8 +291,8 @@ MonoBehaviour:
   direction: {x: 0, y: 1}
   destination: {x: 0, y: 0}
   patrolTargets:
-  - {x: 8, y: 4.5}
-  - {x: 8, y: 0}
+  - {x: -5, y: -2.5}
+  - {x: 5, y: -2.5}
   currPatrolTarget: 0
   reachedTarget: 1
   chaseTarget: {x: 0, y: 0}
@@ -306,8 +306,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   roomNumber: 0
   roomBounds:
-  - -9
-  - 9
+  - -10
+  - 10
   - -6
   - 6
   HorizontalCollider: {fileID: 7352941399842670579}
@@ -452,7 +452,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 1.5, y: 0.5}
+  m_Size: {x: 2, y: 1}
   m_Direction: 1
 --- !u!70 &2586598892636667386
 CapsuleCollider2D:
@@ -468,7 +468,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1.5}
+  m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!50 &4982840474907815785
 Rigidbody2D:

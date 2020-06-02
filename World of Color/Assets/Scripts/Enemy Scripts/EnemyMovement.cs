@@ -61,9 +61,11 @@ public class EnemyMovement : MonoBehaviour
         //once purified, there's no need for chase or patrol
         if (enemyState == EnemyState.Purified)
         {
+            //only do this once when we first get purified
             if (myAnim.GetBool("is_purified") == false)
             {
                 myAnim.SetBool("is_purified", true);
+                wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
                 reachedTarget = true;
             }
         }
@@ -128,10 +130,9 @@ public class EnemyMovement : MonoBehaviour
                         if (timeInIdle <= 0)
                         {
                             isIdle = false;
-
                         }
                     }
-                    //if we're not in idle, get a new target
+                    //if we're not in idle and we've reached our previous target, get a new target
                     else
                     {
                         //check if we reached our current target and get a new target if we have
@@ -140,8 +141,10 @@ public class EnemyMovement : MonoBehaviour
                             //30% chance of idle
                             if (Random.Range(0, 3) > 1)
                             {
+                                isIdle = true;
                                 timeInIdle = Random.Range(1.0f, 5.0f);
                             }
+                            //70% chance to wander
                             else
                             {
                                 wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
@@ -174,7 +177,9 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        return possibleTargets[closest];
+        possibleTargets[closest].x = Mathf.Round(possibleTargets[closest].x);
+        possibleTargets[closest].y = Mathf.Round(possibleTargets[closest].y);
+                return possibleTargets[closest];
     }
 
     //choose the best possible option for getting to a certain target
@@ -260,11 +265,11 @@ public class EnemyMovement : MonoBehaviour
     }
 
     //make sure we aren't bumping into a wall
-    private bool IsValidDirection(Vector2 direction)
+     bool IsValidDirection(Vector2 direction)
     {
         //draw a line to the next tile over (+ a little bit) and check if the wall is in the way
         Vector2 pos = transform.position;
-        direction *= 1.55f;
+        direction *= 2.55f;
 
         //check layers to make sure we're not trying to walk into the player or another enemy
         int wallLayer = 1 << 10;

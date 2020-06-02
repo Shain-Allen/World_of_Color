@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 160
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,9 +133,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
-        width: 480
-        height: 480
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c67524bf82b3c21f0800000000000000
-      internalID: -1068413964393490580
+      spriteID: 41efdfd154a314e50800000000000000
+      internalID: 6791773781581757972
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: Enemy_Evil_Idle_Down_1
       rect:
         serializedVersion: 2
-        x: 480
-        y: 480
-        width: 480
-        height: 480
+        x: 48
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9757da3cfd7ac0360800000000000000
-      internalID: 7137264088977864057
+      spriteID: 4509c1bb53e3f86d0800000000000000
+      internalID: -2986099627429949356
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 480
-        height: 480
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0f2d3c4fcc0be610800000000000000
-      internalID: 1651427772838260494
+      spriteID: 8d794f6591f31a920800000000000000
+      internalID: 2999748204871063512
       vertices: []
       indices: 
       edges: []

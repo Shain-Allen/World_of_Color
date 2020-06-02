@@ -9,7 +9,7 @@ public class Player_Shield : MonoBehaviour
     public int maxDurability = 3;
 
     public float currCooldownTime = 0.0f;
-    public float maxCooldownTime = 10.0f;
+    public float maxCooldownTime = 15.0f;
 
     public bool isBroken = false;
 
@@ -24,7 +24,7 @@ public class Player_Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shieldBarMat.SetFloat("Saturation", 1.0f);
     }
 
     // Update is called once per frame

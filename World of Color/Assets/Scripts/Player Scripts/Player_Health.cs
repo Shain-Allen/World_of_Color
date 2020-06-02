@@ -59,7 +59,6 @@ public class Player_Health : MonoBehaviour
         if(health <= 0)
         {
             //TODO: fade into new scene
-            audioSource.PlayOneShot(mySounds.player_gameOver);
             SceneManager.LoadScene("GameOver");
         }
 

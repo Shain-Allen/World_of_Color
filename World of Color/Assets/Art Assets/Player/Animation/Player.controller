@@ -415,7 +415,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: bcf991f78bcf5eb47ae8c2bd46e08d02, type: 2}
+    m_Motion: {fileID: 7400000, guid: 66fcea3a33746e84d9ad494f8bbcc460, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -514,25 +514,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MoveDir
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: HasShield
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -580,7 +580,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: fe27bddb0b490b04caebc8c2bea264d0, type: 2}
+    m_Motion: {fileID: 7400000, guid: f7f3c582a6083a741bec66967d59a5f9, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -588,7 +588,7 @@ BlendTree:
     m_DirectBlendParameter: MoveDir
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 836da4cdf1cb6ce4480317f451cc8399, type: 2}
+    m_Motion: {fileID: 7400000, guid: e77e143bca60e1e439038a5890653b3f, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1014,12 +1014,12 @@ AnimatorStateMachine:
   - {fileID: 2274550303641910636}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 6165919068166527261}
-    second:
-    - {fileID: -3179133397771228970}
   - first: {fileID: 1577864485844910913}
     second:
     - {fileID: 6871638405482274918}
+  - first: {fileID: 6165919068166527261}
+    second:
+    - {fileID: -3179133397771228970}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 10, y: 20, z: 0}
   m_EntryPosition: {x: 270, y: 20, z: 0}

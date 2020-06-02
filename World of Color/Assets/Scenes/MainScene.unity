@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -18194,6 +18194,21 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}

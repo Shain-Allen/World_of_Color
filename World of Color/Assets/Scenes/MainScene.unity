@@ -832,7 +832,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.91120875, y: 0.32358855}
-      - {x: -1.0952566, y: -0.064682975}
+      - {x: -1.5065894, y: -0.16264486}
       - {x: -0.9040648, y: -0.6341122}
       - {x: -0.44048834, y: -0.86502445}
       - {x: -0.44183528, y: 0.46614996}
@@ -7303,7 +7303,7 @@ PolygonCollider2D:
     - - {x: 0.41840088, y: -0.89636993}
       - {x: -0.42805576, y: -0.8811183}
       - {x: -0.6400854, y: -1.3059974}
-      - {x: 0.012484431, y: -1.9076037}
+      - {x: 0.03207147, y: -2.7304826}
       - {x: 0.5980308, y: -1.378098}
 --- !u!1 &695077310
 GameObject:
@@ -8378,11 +8378,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.015476465, y: 1.4333441}
-      - {x: -0.29072225, y: 1.2376117}
-      - {x: -0.29373014, y: 1.0069011}
-      - {x: 0.3143655, y: 1.0172188}
-      - {x: 0.32683456, y: 1.1963408}
+    - - {x: 0.015476465, y: 2.0994835}
+      - {x: -0.42783296, y: 1.2767959}
+      - {x: -0.2741431, y: 0.8697543}
+      - {x: 0.3143655, y: 0.86047983}
+      - {x: 0.48353267, y: 1.2355251}
 --- !u!1 &922530633
 GameObject:
   m_ObjectHideFlags: 0
@@ -19766,12 +19766,12 @@ PrefabInstance:
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.36
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.49
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
@@ -19841,17 +19841,17 @@ PrefabInstance:
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].y
-      value: -30
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].x
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].y
-      value: -30
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
@@ -25946,22 +25946,22 @@ PrefabInstance:
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].x
-      value: -7
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].y
-      value: -25
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].y
-      value: -25
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
@@ -26822,7 +26822,7 @@ MonoBehaviour:
   isAttacking: 0
   attackdir: 0
   attackArea:
-  - {fileID: 0}
+  - {fileID: 676929893}
   - {fileID: 860668547}
   - {fileID: 169423506}
   - {fileID: 2086227950}
@@ -26976,10 +26976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f1d44bc9fe7845ad84d88bd60cc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currDurability: 10
-  maxDurability: 10
+  currDurability: 3
+  maxDurability: 3
   currCooldownTime: 0
-  maxCooldownTime: 5
+  maxCooldownTime: 7.5
   isBroken: 0
   mySounds: {fileID: 2055061657}
   audioSource: {fileID: 2055061656}
@@ -27206,9 +27206,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.7840745, y: 0.19497018}
-      - {x: 1.0221711, y: -0.17248914}
-      - {x: 0.8697327, y: -0.5861982}
+    - - {x: 0.8820109, y: 0.41048622}
+      - {x: 1.3747422, y: -0.2312665}
+      - {x: 1.0068433, y: -0.68415976}
       - {x: 0.44902617, y: -0.89929914}
       - {x: 0.40343997, y: 0.5737796}
 --- !u!1 &2092106549

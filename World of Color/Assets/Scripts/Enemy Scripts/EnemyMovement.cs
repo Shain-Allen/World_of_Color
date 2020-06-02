@@ -269,7 +269,7 @@ public class EnemyMovement : MonoBehaviour
     {
         //draw a line to the next tile over (+ a little bit) and check if the wall is in the way
         Vector2 pos = transform.position;
-        direction *= 2.55f;
+        direction *= 2.0f;
 
         //check layers to make sure we're not trying to walk into the player or another enemy
         int wallLayer = 1 << 10;

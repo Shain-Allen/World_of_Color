@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour
 {
@@ -57,7 +58,9 @@ public class Player_Health : MonoBehaviour
 
         if(health <= 0)
         {
+            //TODO: fade into new scene
             audioSource.PlayOneShot(mySounds.player_gameOver);
+            SceneManager.LoadScene("GameOver");
         }
 
 

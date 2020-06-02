@@ -27,6 +27,11 @@ public class Player_Shield : MonoBehaviour
         shieldBarMat.SetFloat("Saturation", 1.0f);
     }
 
+    private void OnDisable()
+    {
+        shieldBarMat.SetFloat("Saturation", 1.0f);
+    }
+
     // Update is called once per frame
     void Update()
     {

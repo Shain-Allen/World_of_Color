@@ -15,5 +15,5 @@ MonoBehaviour:
   maxHealth: 5
   movementSpeed: 0.05
   attackRange: 0
-  attackCooldown: 3
+  attackCooldown: 1.5
   attackDamage: 1

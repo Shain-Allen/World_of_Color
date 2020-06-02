@@ -2160,7 +2160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: a489905b5518cd44e8c8336669a0e7ce, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -7293,7 +7293,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -18195,21 +18195,6 @@ PrefabInstance:
       propertyPath: roomNumber
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
@@ -26999,11 +26984,12 @@ MonoBehaviour:
   currDurability: 3
   maxDurability: 3
   currCooldownTime: 0
-  maxCooldownTime: 7.5
+  maxCooldownTime: 10
   isBroken: 0
   mySounds: {fileID: 2055061657}
   audioSource: {fileID: 2055061656}
   shieldBar: {fileID: 545527921}
+  shieldBarMat: {fileID: 2100000, guid: a489905b5518cd44e8c8336669a0e7ce, type: 2}
 --- !u!1 &2060482089
 GameObject:
   m_ObjectHideFlags: 0

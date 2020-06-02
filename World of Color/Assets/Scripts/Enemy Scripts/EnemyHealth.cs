@@ -17,6 +17,9 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isPurified = false;
 
+    //VFX
+    public GameObject purifiedVFX;
+
     private void Awake()
     {
         RoomManager.GetComponent<StartingAreaManager>().UnPurified();
@@ -45,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
             //keep this or break shader
             audioSource.PlayOneShot(mySounds.enemy_purify);
             isPurified = true;
+            Instantiate(purifiedVFX, GetComponent<Transform>().position, Quaternion.identity);
         }
     }
 

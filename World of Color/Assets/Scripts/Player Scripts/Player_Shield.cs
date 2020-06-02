@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Player_Shield : MonoBehaviour
 {
-    public int currDurability = 10;
-    public int maxDurability = 10;
+    public int currDurability = 3;
+    public int maxDurability = 3;
 
     public float currCooldownTime = 0.0f;
-    public float maxCooldownTime = 5.0f;
+    public float maxCooldownTime = 7.5f;
 
     public bool isBroken = false;
 

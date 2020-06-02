@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -832,7 +832,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.91120875, y: 0.32358855}
-      - {x: -1.0952566, y: -0.064682975}
+      - {x: -1.5065894, y: -0.16264486}
       - {x: -0.9040648, y: -0.6341122}
       - {x: -0.44048834, y: -0.86502445}
       - {x: -0.44183528, y: 0.46614996}
@@ -5471,8 +5471,8 @@ Tilemap:
   - first: {x: -1, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5480,8 +5480,8 @@ Tilemap:
   - first: {x: 0, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 11
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7019,7 +7019,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 59df63c9d08b7ca48a24cea40f32f1d8, type: 2}
   - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: b9789660d5792154ab5525fe65d76ef4, type: 2}
-  - m_RefCount: 30
+  - m_RefCount: 28
     m_Data: {fileID: 11400000, guid: 69e15f5e66d1c214c8debcda505c2e2c, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 2387494955b763a46bec08935a86f9d6, type: 2}
@@ -7029,6 +7029,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4b92537976bed4e49990741dd9a64b35, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 40bdc0221b533fe4e9d93cfdd10ca5d5, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 3f2a81843c10ca74394b41f6924d925a, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: b2f2ce7f1af4754438bfa2e24ef39343, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 24
     m_Data: {fileID: 21300000, guid: b4743fe1e23f42d488584522bf01f04b, type: 3}
@@ -7040,7 +7044,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 2eb263825bcec8f47ae0d65faa3dc534, type: 3}
   - m_RefCount: 24
     m_Data: {fileID: 21300000, guid: ebe14aba28ac1f442b0d925f420eeb35, type: 3}
-  - m_RefCount: 30
+  - m_RefCount: 28
     m_Data: {fileID: 21300000, guid: 8e27c263d243b444f9ec1f1e8bdf7e6e, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: 21300000, guid: 2558a31e77fe440429e1c9bf8ffa35ee, type: 3}
@@ -7050,6 +7054,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 9f32f39d8fe0b584d824d1206383c39c, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 21300000, guid: 91623121351652d429e74592519565ee, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 97629b3dfc02a5842ba97c50346f3acc, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: fede901916157cd419cd75da024fec73, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 526
     m_Data:
@@ -7303,7 +7311,7 @@ PolygonCollider2D:
     - - {x: 0.41840088, y: -0.89636993}
       - {x: -0.42805576, y: -0.8811183}
       - {x: -0.6400854, y: -1.3059974}
-      - {x: 0.012484431, y: -1.9076037}
+      - {x: 0.03207147, y: -2.7304826}
       - {x: 0.5980308, y: -1.378098}
 --- !u!1 &695077310
 GameObject:
@@ -8378,11 +8386,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.015476465, y: 1.4333441}
-      - {x: -0.29072225, y: 1.2376117}
-      - {x: -0.29373014, y: 1.0069011}
-      - {x: 0.3143655, y: 1.0172188}
-      - {x: 0.32683456, y: 1.1963408}
+    - - {x: 0.015476465, y: 2.0994835}
+      - {x: -0.42783296, y: 1.2767959}
+      - {x: -0.2741431, y: 0.8697543}
+      - {x: 0.3143655, y: 0.86047983}
+      - {x: 0.48353267, y: 1.2355251}
 --- !u!1 &922530633
 GameObject:
   m_ObjectHideFlags: 0
@@ -18187,11 +18195,6 @@ PrefabInstance:
       propertyPath: roomNumber
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 57878b9e288d55f488bf4383f0e87026, type: 2}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
@@ -19766,12 +19769,12 @@ PrefabInstance:
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.36
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.49
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815784, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
@@ -19841,28 +19844,29 @@ PrefabInstance:
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].y
-      value: -30
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].x
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].y
-      value: -30
+      value: -21
       objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 57878b9e288d55f488bf4383f0e87026, type: 2}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
       value: 
       objectReference: {fileID: 1824069666}
+    - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: purifiedVFX
+      value: 
+      objectReference: {fileID: 5125444403636803983, guid: 26cbe4c8dd5ad0f49aaee77de5534c53,
+        type: 3}
     - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -25946,33 +25950,34 @@ PrefabInstance:
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].x
-      value: -7
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[0].y
-      value: -25
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4982840474907815786, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: patrolTargets.Array.data[1].y
-      value: -25
+      value: -36
       objectReference: {fileID: 0}
-    - target: {fileID: 4982840474907815787, guid: 84156c3a2f48fc846a523573972bb749,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 57878b9e288d55f488bf4383f0e87026, type: 2}
     - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: RoomManager
       value: 
       objectReference: {fileID: 1824069666}
+    - target: {fileID: 4982840474907815789, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: purifiedVFX
+      value: 
+      objectReference: {fileID: 5125444403636803983, guid: 26cbe4c8dd5ad0f49aaee77de5534c53,
+        type: 3}
     - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -26822,7 +26827,7 @@ MonoBehaviour:
   isAttacking: 0
   attackdir: 0
   attackArea:
-  - {fileID: 0}
+  - {fileID: 676929893}
   - {fileID: 860668547}
   - {fileID: 169423506}
   - {fileID: 2086227950}
@@ -26976,10 +26981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f1d44bc9fe7845ad84d88bd60cc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currDurability: 10
-  maxDurability: 10
+  currDurability: 3
+  maxDurability: 3
   currCooldownTime: 0
-  maxCooldownTime: 5
+  maxCooldownTime: 7.5
   isBroken: 0
   mySounds: {fileID: 2055061657}
   audioSource: {fileID: 2055061656}
@@ -27206,9 +27211,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.7840745, y: 0.19497018}
-      - {x: 1.0221711, y: -0.17248914}
-      - {x: 0.8697327, y: -0.5861982}
+    - - {x: 0.8820109, y: 0.41048622}
+      - {x: 1.3747422, y: -0.2312665}
+      - {x: 1.0068433, y: -0.68415976}
       - {x: 0.44902617, y: -0.89929914}
       - {x: 0.40343997, y: 0.5737796}
 --- !u!1 &2092106549

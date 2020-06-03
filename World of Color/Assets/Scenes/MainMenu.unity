@@ -860,7 +860,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 72aaed77c2f817d4cb8f2d0886a4d12e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1500,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 949356504235054860, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -290
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 949356504235054863, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
         type: 3}
@@ -1596,6 +1596,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 30.605938
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023925463915719089, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -210
       objectReference: {fileID: 0}
     - target: {fileID: 5466262636048166815, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
         type: 3}

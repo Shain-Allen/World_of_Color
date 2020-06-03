@@ -784,6 +784,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1001 &146414771
@@ -1046,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 949356504235054860, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -290
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 949356504235054863, guid: 8673eef23eb02f641a5bc38c0c1f2b66,
         type: 3}
@@ -1399,7 +1404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 0}
+  m_AnchoredPosition: {x: -210, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213626026
@@ -2659,6 +2664,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &516815107
@@ -13937,6 +13947,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &1149641641
@@ -18184,6 +18199,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &1351018192
@@ -18395,6 +18415,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &1383724044
@@ -21128,6 +21153,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &1554471839
@@ -27500,6 +27530,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3151d30d1d67b75468591ac3ece7eb6b,
         type: 2}
+    - target: {fileID: 7025059083701743939, guid: 84156c3a2f48fc846a523573972bb749,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84156c3a2f48fc846a523573972bb749, type: 3}
 --- !u!1 &1824069666
@@ -37113,7 +37148,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

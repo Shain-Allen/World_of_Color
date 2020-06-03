@@ -13,6 +13,9 @@ public class Player_Shield : MonoBehaviour
 
     public bool isBroken = false;
 
+    //Animation
+    public Animator anim;
+
     //sounds
     public PlayerSounds mySounds;
     public AudioSource audioSource;

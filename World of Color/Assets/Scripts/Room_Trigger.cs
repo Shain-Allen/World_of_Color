@@ -12,6 +12,7 @@ public class Room_Trigger : MonoBehaviour
 {
     public GameObject virtualCamera;
     public int roomNumber;
+    public GameObject enemies;
 
     public AudioMixer audioMixer;
     public StartingAreaManager areaManager;
@@ -25,6 +26,7 @@ public class Room_Trigger : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            enemies.SetActive(true);
             virtualCamera.SetActive(true);
             Console.WriteLine("Muted");
             inRoom = true;

@@ -71,6 +71,9 @@ public class EnemyMovement : MonoBehaviour
                 myAnim.SetBool("is_purified", true);
                 wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
                 reachedTarget = true;
+
+                //turn off all shadows
+                SwitchShadows(5);
             }
         }
         else
@@ -317,7 +320,11 @@ public class EnemyMovement : MonoBehaviour
             myAnim.SetFloat("walk_direction", 3.0f); //right
         }
 
-        SwitchShadows(direction);
+        //no shadow if purified
+        if (!myAnim.GetBool("is_purified"))
+        {
+            SwitchShadows(direction);
+        }
         myAnim.SetBool("is_walking", true);
     }
 
@@ -349,7 +356,11 @@ public class EnemyMovement : MonoBehaviour
             myAnim.SetFloat("idle_direction", 3.0f); //right
         }
 
-        SwitchShadows(direction);
+        //no shadow if purified
+        if (!myAnim.GetBool("is_purified"))
+        {
+            SwitchShadows(direction);
+        }
         myAnim.SetBool("is_walking", false);
     }
 

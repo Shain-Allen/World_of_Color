@@ -10,9 +10,9 @@ public class Player_Health : MonoBehaviour
     //health UI 
     public int health;
     public int numOfHearts;
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite EmptyHeart;
+    public GameObject[] hearts;
+    //public Sprite fullHeart;
+    //public Sprite EmptyHeart;
 
     //player graidiant Control
     public Material PlayerMat;
@@ -66,22 +66,13 @@ public class Player_Health : MonoBehaviour
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < health)
+            if (i >= health)
             {
-                hearts[i].sprite = fullHeart;
+                hearts[i].SetActive(true);
             }
             else
             {
-                hearts[i].sprite = EmptyHeart;
-            }
-
-            if (i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                hearts[i].SetActive(false);
             }
         }
     }

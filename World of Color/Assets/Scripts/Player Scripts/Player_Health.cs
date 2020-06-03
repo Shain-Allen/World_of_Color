@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour
 {
     //health UI 
     public int health;
     public int numOfHearts;
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite EmptyHeart;
+    public GameObject[] hearts;
+    //public Sprite fullHeart;
+    //public Sprite EmptyHeart;
 
     //player graidiant Control
     public Material PlayerMat;
@@ -26,6 +27,8 @@ public class Player_Health : MonoBehaviour
     public Player_Combat myAttack;
     public Vector2[] shieldDirections = { Vector2.down, Vector2.up, Vector2.left, Vector2.right };
     public Animator myAnim;
+
+    public GameObject FadeCanvas;
 
     private void Start()
     {
@@ -57,7 +60,7 @@ public class Player_Health : MonoBehaviour
 
         if(health <= 0)
         {
-            audioSource.PlayOneShot(mySounds.player_gameOver);
+            StartCoroutine(Death());
         }
 
 
@@ -65,22 +68,21 @@ public class Player_Health : MonoBehaviour
         {
             if (i < health)
             {
-                hearts[i].sprite = fullHeart;
+                hearts[i].SetActive(true);
             }
             else
             {
-                hearts[i].sprite = EmptyHeart;
-            }
-
-            if (i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                hearts[i].SetActive(false);
             }
         }
+    }
+
+    IEnumerator Death()
+    {
+        FadeCanvas.SetActive(true);
+        FadeCanvas.GetComponent<Animator>().SetInteger("fade_direction", 1);
+        yield return new WaitForSeconds(0.9f);
+        SceneManager.LoadScene("GameOver");
     }
 
     void PlayerMatController()

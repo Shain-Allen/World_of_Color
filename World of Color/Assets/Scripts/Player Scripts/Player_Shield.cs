@@ -27,12 +27,18 @@ public class Player_Shield : MonoBehaviour
         shieldBarMat.SetFloat("Saturation", 1.0f);
     }
 
+    private void OnDisable()
+    {
+        shieldBarMat.SetFloat("Saturation", 1.0f);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(currDurability <= 0)
+        if(currDurability <= 0 && !isBroken)
         {
             shieldBarMat.SetFloat("Saturation", 0.0f);
+            audioSource.PlayOneShot(mySounds.player_shieldBreak);
             isBroken = true;
         }
 
@@ -48,6 +54,7 @@ public class Player_Shield : MonoBehaviour
                 currCooldownTime = 0;
                 currDurability = maxDurability;
                 shieldBar.fillAmount = 1.0f;
+                audioSource.PlayOneShot(mySounds.player_shieldRecharge);
                 shieldBarMat.SetFloat("Saturation", 1.0f);
             }
         }

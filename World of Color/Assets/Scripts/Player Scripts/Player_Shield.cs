@@ -11,10 +11,8 @@ public class Player_Shield : MonoBehaviour
     public float currCooldownTime = 0.0f;
     public float maxCooldownTime = 15.0f;
 
+    public Animator myAnim;
     public bool isBroken = false;
-
-    //Animation
-    public Animator anim;
 
     //sounds
     public PlayerSounds mySounds;
@@ -28,6 +26,7 @@ public class Player_Shield : MonoBehaviour
     void Start()
     {
         shieldBarMat.SetFloat("Saturation", 1.0f);
+        myAnim.SetBool("HasShield", true);
     }
 
     private void OnDisable()
@@ -42,6 +41,7 @@ public class Player_Shield : MonoBehaviour
         {
             shieldBarMat.SetFloat("Saturation", 0.0f);
             audioSource.PlayOneShot(mySounds.player_shieldBreak);
+            myAnim.SetBool("HasShield", false);
             isBroken = true;
         }
 
@@ -54,6 +54,7 @@ public class Player_Shield : MonoBehaviour
             if (currCooldownTime >= maxCooldownTime)
             {
                 isBroken = false;
+                myAnim.SetBool("HasShield", true);
                 currCooldownTime = 0;
                 currDurability = maxDurability;
                 shieldBar.fillAmount = 1.0f;

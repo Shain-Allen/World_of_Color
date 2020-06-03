@@ -66,7 +66,7 @@ public class Player_Health : MonoBehaviour
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i >= health)
+            if (i < health)
             {
                 hearts[i].SetActive(true);
             }

@@ -17,7 +17,8 @@ public class EnemyMovement : MonoBehaviour
     public float distToChasePlayer = 7.5f;
 
     //calculating movement goals/targets for chase
-    public Vector2 direction = Vector2.up;
+    public Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+    public int currDirection = 0;
     public Vector2 destination;
    
     //for patrol
@@ -46,6 +47,9 @@ public class EnemyMovement : MonoBehaviour
     //colliders based on direction
     public Collider2D HorizontalCollider;
     public Collider2D VerticalCollider;
+
+    //shadows based on direction
+    public GameObject[] Shadows = new GameObject[4];
 
     // Start is called before the first frame update
     void Start()
@@ -103,9 +107,9 @@ public class EnemyMovement : MonoBehaviour
                     else
                     {
                         reachedTarget = true;
-                        SwitchIdleAnimations(direction);
+                        SwitchIdleAnimations(currDirection);
                         myAttack.canAttack = true;
-                        myAttack.attackDirection = direction;
+                        myAttack.attackDirection = directions[currDirection];
                     }
                     break;
                     
@@ -125,7 +129,7 @@ public class EnemyMovement : MonoBehaviour
                     if (isIdle)
                     {
                         reachedTarget = true;
-                        SwitchIdleAnimations(direction);
+                        SwitchIdleAnimations(currDirection);
                         timeInIdle -= Time.deltaTime;
                         if (timeInIdle <= 0)
                         {
@@ -185,28 +189,25 @@ public class EnemyMovement : MonoBehaviour
     //choose the best possible option for getting to a certain target
     void ChoosePath(Vector2 target)
     {
-        //enemy can choose to continue going straight, turn left/right, or turn back around (currently only 4 directions)
-        Vector2[] possibleMovements = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-
         //for keeping track of the optimal path
         float distToTarget = float.MaxValue;
         int bestPath = 0;
 
         //choose best direction to move in
-        for(int i = 0; i < possibleMovements.Length; i++)
+        for(int i = 0; i < directions.Length; i++)
         {
             //make sure the direction isn't going into a wall
-            if(IsValidDirection(possibleMovements[i]) && distToTarget > Vector2.Distance((Vector2)transform.position + possibleMovements[i], target))
+            if(IsValidDirection(directions[i]) && distToTarget > Vector2.Distance((Vector2)transform.position + directions[i], target))
             {
                 bestPath = i;
-                distToTarget = Vector2.Distance((Vector2)transform.position + possibleMovements[i], target);
+                distToTarget = Vector2.Distance((Vector2)transform.position + directions[i], target);
             }
         }
 
-        direction = possibleMovements[bestPath];
-        SwitchWalkAnimations(direction);
+        currDirection = bestPath;
+        SwitchWalkAnimations(currDirection);
 
-        destination = (Vector2)transform.position + direction;
+        destination = (Vector2)transform.position + directions[currDirection];
         destination.x = Mathf.Round(destination.x);
         destination.y = Mathf.Round(destination.y);
 
@@ -245,7 +246,7 @@ public class EnemyMovement : MonoBehaviour
             if (Vector2.Distance((Vector2)transform.position + tempDirections[i], Player.transform.position) <= dist)
             {
                 //if we have reached the target, face the player
-                direction = tempDirections[i].normalized;
+                currDirection = i;
                 return true;
             }
         }
@@ -289,66 +290,82 @@ public class EnemyMovement : MonoBehaviour
     }
 
     //switch animation based on what direction we're moving in/facing
-    void SwitchWalkAnimations(Vector2 direction)
+    void SwitchWalkAnimations(int direction)
     {
-        if(direction == Vector2.up)
+        if(direction == 0)
         {
             HorizontalCollider.enabled = false;
             VerticalCollider.enabled = true;
             myAnim.SetFloat("walk_direction", 0.0f); //up
         }
-        if (direction == Vector2.down)
+        if (direction == 1)
         {
             HorizontalCollider.enabled = false;
             VerticalCollider.enabled = true;
             myAnim.SetFloat("walk_direction", 1.0f); //down
         }
-        if (direction == Vector2.left)
+        if (direction == 2)
         {
             HorizontalCollider.enabled = true;
             VerticalCollider.enabled = false;
             myAnim.SetFloat("walk_direction", 2.0f); //left
         }
-        if (direction == Vector2.right)
+        if (direction == 3)
         {
             HorizontalCollider.enabled = true;
             VerticalCollider.enabled = false;
             myAnim.SetFloat("walk_direction", 3.0f); //right
         }
 
-        myAttack.currCollider.SetActive(true);
+        SwitchShadows(direction);
         myAnim.SetBool("is_walking", true);
     }
 
 
-    public void SwitchIdleAnimations(Vector2 direction)
+    public void SwitchIdleAnimations(int direction)
     {
-        if (direction == Vector2.up)
+        if (direction == 0)
         {
             HorizontalCollider.enabled = false;
             VerticalCollider.enabled = true;
             myAnim.SetFloat("idle_direction", 0.0f); //up
         }
-        if (direction == Vector2.down)
+        if (direction == 1)
         {
             HorizontalCollider.enabled = false;
             VerticalCollider.enabled = true;
             myAnim.SetFloat("idle_direction", 1.0f); //down
         }
-        if (direction == Vector2.left)
+        if (direction == 2)
         {
             HorizontalCollider.enabled = true;
             VerticalCollider.enabled = false;
             myAnim.SetFloat("idle_direction", 2.0f); //left
         }
-        if (direction == Vector2.right)
+        if (direction == 3)
         {
             HorizontalCollider.enabled = true;
             VerticalCollider.enabled = false;
             myAnim.SetFloat("idle_direction", 3.0f); //right
         }
 
+        SwitchShadows(direction);
         myAnim.SetBool("is_walking", false);
+    }
+
+    public void SwitchShadows(int direction)
+    {
+        for(int i = 0; i < Shadows.Length; i++)
+        {
+            if(i == direction)
+            {
+                Shadows[i].SetActive(true);
+            }
+            else
+            {
+                Shadows[i].SetActive(false);
+            }
+        }
     }
 
 }

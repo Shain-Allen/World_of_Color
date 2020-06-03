@@ -28,6 +28,8 @@ public class Player_Health : MonoBehaviour
     public Vector2[] shieldDirections = { Vector2.down, Vector2.up, Vector2.left, Vector2.right };
     public Animator myAnim;
 
+    public GameObject FadeCanvas;
+
     private void Start()
     {
         PlayerMat.SetFloat("Distance", 1f);
@@ -58,8 +60,7 @@ public class Player_Health : MonoBehaviour
 
         if(health <= 0)
         {
-            //TODO: fade into new scene
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(Death());
         }
 
 
@@ -83,6 +84,14 @@ public class Player_Health : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+    }
+
+    IEnumerator Death()
+    {
+        FadeCanvas.SetActive(true);
+        FadeCanvas.GetComponent<Animator>().SetInteger("fade_direction", 1);
+        yield return new WaitForSeconds(0.9f);
+        SceneManager.LoadScene("GameOver");
     }
 
     void PlayerMatController()

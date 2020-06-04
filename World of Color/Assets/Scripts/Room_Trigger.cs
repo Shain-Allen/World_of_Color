@@ -18,7 +18,9 @@ public class Room_Trigger : MonoBehaviour
     public int[] enemiesToAudioTracks = new int[5];
     public bool inRoom = false;
     float fadeInTime = 1f;
-    float fadeOutTime = 0.001f;
+    float fadeOutTime = 0.000000000000000001f;
+
+    public bool CreditsRoom = false;
 
     //if the player enters a room, that room's vcam is turned on
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,8 +55,11 @@ public class Room_Trigger : MonoBehaviour
         //4. Bass2
         //5. MelodicLine
 
-        if (inRoom == true)
+        if (inRoom == true && CreditsRoom == false)
         {
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Credits", fadeOutTime, 0f));
+
+
             if (areaManager.purifiedMonsters >= enemiesToAudioTracks[0])
             {
                 Console.WriteLine("unmuted");
@@ -105,7 +110,18 @@ public class Room_Trigger : MonoBehaviour
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "Colorless", fadeOutTime, 1f));
             }
-        }        
+        }
+
+        if (inRoom == true && CreditsRoom == true)
+        {
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Harmony", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Drums", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass2", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Colorless", fadeOutTime, 0f));
+            StartCoroutine(Room_Trigger.StartFade(audioMixer, "Credits", fadeInTime, 1f));
+        }
     }
         
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)

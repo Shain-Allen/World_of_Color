@@ -14,6 +14,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: -7027478424005687481}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-8387794941630386675
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4232f77378840f54aabfcdf8156ac735
+  m_EffectName: Attenuation
+  m_MixLevel: 4da330aca0625474aa6f367471ed774e
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-8339044431410100726
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -165,6 +179,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-1012195908263097733
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: e6a894f19d47e074b998007aca3e2819
+  m_EffectName: Send
+  m_MixLevel: 2de3a26e76872634a9a3b2ee20c5e961
+  m_Parameters: []
+  m_SendTarget: {fileID: 4453649569688669080}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-310671113466463290
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -221,6 +249,8 @@ AudioMixerController:
     name: Bass2
   - guid: a9bc5f7d589f2ac40a5680a53295ab4f
     name: Colorless
+  - guid: 33523468a8111a74dac4650543486354
+    name: Credits
   - guid: f928e0ec8d783b64598a05f53ebfa1b2
     name: Drums
   - guid: 621e4dc13ceaa2d409f4a20c1f3dca64
@@ -239,6 +269,7 @@ AudioMixerController:
     - f64aba58c897ff446aa0cd70ee51c7ed
     - c2a3dccc3263d134ea3ce82485bf4302
     - ad6d8c75b99d32141a5996a8b1f17d0f
+    - 38b646328bc487a44947c7bb3714a527
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -253,6 +284,7 @@ AudioMixerGroupController:
   m_GroupID: d953663d20d9cce47b9e2f199172a700
   m_Children:
   - {fileID: -8339044431410100726}
+  - {fileID: 796332311818378276}
   m_Volume: 78ce0b18b7391f741b905959ca90994b
   m_Pitch: 1c9c3a7535ceb004f8d438a1f592a60e
   m_Send: 00000000000000000000000000000000
@@ -311,6 +343,26 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &796332311818378276
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Credits music
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 38b646328bc487a44947c7bb3714a527
+  m_Children: []
+  m_Volume: 33523468a8111a74dac4650543486354
+  m_Pitch: 0ffc09757a0d19d4ba143cd5a5e153f8
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8387794941630386675}
+  - {fileID: -1012195908263097733}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &1246500955895346206
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

@@ -1899,8 +1899,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b6d6e821ab1aab4391ba8c35be00012, type: 2}
-  m_sharedMaterial: {fileID: -1119748238494081505, guid: 8b6d6e821ab1aab4391ba8c35be00012,
+  m_fontAsset: {fileID: 11400000, guid: bd005406986be2c459a21064d62811cc, type: 2}
+  m_sharedMaterial: {fileID: 3934253941611749193, guid: bd005406986be2c459a21064d62811cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1916,8 +1916,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e454b606f3a808d4a80d2ed1b8a2c346,
-    type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -2928,16 +2927,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b6d6e821ab1aab4391ba8c35be00012, type: 2}
-  m_sharedMaterial: {fileID: -1119748238494081505, guid: 8b6d6e821ab1aab4391ba8c35be00012,
+  m_fontAsset: {fileID: 11400000, guid: bd005406986be2c459a21064d62811cc, type: 2}
+  m_sharedMaterial: {fileID: 3934253941611749193, guid: bd005406986be2c459a21064d62811cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292646912
+  m_fontColor: {r: 0, g: 0.59607846, b: 0.86274517, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -2945,8 +2944,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e454b606f3a808d4a80d2ed1b8a2c346,
-    type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -2973,7 +2971,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -27188,8 +27186,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b6d6e821ab1aab4391ba8c35be00012, type: 2}
-  m_sharedMaterial: {fileID: -1119748238494081505, guid: 8b6d6e821ab1aab4391ba8c35be00012,
+  m_fontAsset: {fileID: 11400000, guid: bd005406986be2c459a21064d62811cc, type: 2}
+  m_sharedMaterial: {fileID: 3934253941611749193, guid: bd005406986be2c459a21064d62811cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -27205,8 +27203,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e454b606f3a808d4a80d2ed1b8a2c346,
-    type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -36487,8 +36484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b6d6e821ab1aab4391ba8c35be00012, type: 2}
-  m_sharedMaterial: {fileID: -1119748238494081505, guid: 8b6d6e821ab1aab4391ba8c35be00012,
+  m_fontAsset: {fileID: 11400000, guid: bd005406986be2c459a21064d62811cc, type: 2}
+  m_sharedMaterial: {fileID: 3934253941611749193, guid: bd005406986be2c459a21064d62811cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -36504,8 +36501,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e454b606f3a808d4a80d2ed1b8a2c346,
-    type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0

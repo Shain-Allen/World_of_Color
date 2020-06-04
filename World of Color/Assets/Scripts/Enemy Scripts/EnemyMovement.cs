@@ -45,8 +45,8 @@ public class EnemyMovement : MonoBehaviour
     public float[] roomBounds = new float[4];   //min x, max x, min y, max y
 
     //colliders based on direction
-    public Collider2D HorizontalCollider;
-    public Collider2D VerticalCollider;
+    public CapsuleCollider2D HorizontalCollider;
+    public CapsuleCollider2D VerticalCollider;
 
     //shadows based on direction
     public GameObject[] Shadows = new GameObject[4];
@@ -70,10 +70,16 @@ public class EnemyMovement : MonoBehaviour
             {
                 myAnim.SetBool("is_purified", true);
                 wanderTarget = new Vector2(Random.Range(roomBounds[0], roomBounds[1]), Random.Range(roomBounds[2], roomBounds[3]));
+                wanderTarget.x = Mathf.Round(wanderTarget.x);
+                wanderTarget.y = Mathf.Round(wanderTarget.y);
                 reachedTarget = true;
 
                 //turn off all shadows
                 SwitchShadows(5);
+
+                //shorten colliders
+                HorizontalCollider.size = new Vector2(HorizontalCollider.size.x / 2, HorizontalCollider.size.y);
+                VerticalCollider.size = new Vector2(VerticalCollider.size.x, VerticalCollider.size.y / 2);
             }
         }
         else
@@ -275,11 +281,10 @@ public class EnemyMovement : MonoBehaviour
         Vector2 pos = transform.position;
         direction *= 2.0f;
 
-        //check layers to make sure we're not trying to walk into the player or another enemy
+        //check layers to make sure we're not trying to walk into the player
         int wallLayer = 1 << 10;
         int playerLayer = 1 << 8;
-        int enemyLayer = 1 << 9;
-        int combinedLayerMask = wallLayer | playerLayer | enemyLayer;
+        int combinedLayerMask = wallLayer | playerLayer;
 
         //TODO: find a way to simplify this
         HorizontalCollider.enabled = false;

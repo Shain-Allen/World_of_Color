@@ -25,12 +25,15 @@ public class StartingAreaManager : MonoBehaviour
 
     private void Update()
     {
-        saturation = (1f / startingUnpurified) * purifiedMonsters;
-        roomMat.SetFloat("Saturation", saturation);
-
-        if (room.inRoom)
+        if (startingUnpurified != 0)
         {
-            pointlight.pointLightOuterRadius = (unpurifiedMonsters / startingUnpurified) * (34.75f - 70f) + 70f;
+            saturation = (1f / startingUnpurified) * purifiedMonsters;
+            roomMat.SetFloat("Saturation", saturation);
+
+            if (room.inRoom)
+            {
+                pointlight.pointLightOuterRadius = (unpurifiedMonsters / startingUnpurified) * (34.75f - 70f) + 70f;
+            }
         }
     }
 

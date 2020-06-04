@@ -76,13 +76,11 @@ public class Room_Trigger : MonoBehaviour
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", fadeInTime, 1f));
             }
-            if(areaManager.purifiedMonsters > 0)
+            if(areaManager.purifiedMonsters != 0)
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "Colorless", fadeInTime, 0f));
             }
-        }
-        else
-        {
+
             if (areaManager.purifiedMonsters <= enemiesToAudioTracks[0])
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "Bass1", fadeOutTime, 0f));
@@ -103,11 +101,11 @@ public class Room_Trigger : MonoBehaviour
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "MelodicLine", fadeOutTime, 0f));
             }
-            if (areaManager.purifiedMonsters < 1)
+            if (areaManager.purifiedMonsters == 0)
             {
                 StartCoroutine(Room_Trigger.StartFade(audioMixer, "Colorless", fadeOutTime, 1f));
             }
-        }
+        }        
     }
         
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)

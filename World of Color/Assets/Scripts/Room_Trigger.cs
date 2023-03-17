@@ -126,20 +126,32 @@ public class Room_Trigger : MonoBehaviour
         
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
-        float currentTime = 0;
-        float currentVol;
-        audioMixer.GetFloat(exposedParam, out currentVol);
-        currentVol = Mathf.Pow(10, currentVol / 20);
-        float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
+    // Initialize variables
+    float currentTime = 0;
+    float currentVol;
+    
+    // Get the current volume level of the exposed parameter and convert it from decibels to a linear scale
+    audioMixer.GetFloat(exposedParam, out currentVol);
+    currentVol = Mathf.Pow(10, currentVol / 20);
+    
+    // Clamp the target volume level to ensure it stays within a valid range
+    float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
 
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-            float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
-            audioMixer.SetFloat(exposedParam, Mathf.Log(newVol) * 20);
-            yield return null;
-        }
-        yield break;
+    // Loop until the fade is complete
+    while (currentTime < duration)
+    {
+        // Increase the current time by the time since the last frame
+        currentTime += Time.deltaTime;
+        
+        // Calculate the new volume level by interpolating between the current and target values over the duration of the fade
+        float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
+        
+        // Convert the new volume level back to decibels and set it as the new value for the exposed parameter
+        audioMixer.SetFloat(exposedParam, Mathf.Log(newVol) * 20);
+        
+        // Pause briefly before the next iteration of the loop
+        yield return null;
     }
+}
 
 }
